@@ -75,11 +75,15 @@ class RegisterController extends Controller
     //     return view("auth.register");
     // }
 
+    //$requestの中にデータが入っている
     public function register(Request $request){
         if($request->isMethod('post')){
             $data = $request->input();
+            // dd($data);確認できる
 
             $this->create($data);
+            // セッションの記述
+            $request->session()->put('name',$data['username']);
             return redirect('added');
         }
         return view('auth.register');
