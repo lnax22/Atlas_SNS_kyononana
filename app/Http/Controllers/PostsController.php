@@ -19,4 +19,27 @@ class PostsController extends Controller
     // {
         // $this->middleware('auth');
     // }
+    public function store(Request $request)
+    {
+        //バリデーション
+        $validator = Validator::make($request->all(), [
+            'post_title' => 'required|max:255',
+            'post_content' => 'required|max:255',
+        ]);
+
+        //バリデーション:エラー
+        if ($validator->fails()) {
+            return redirect('/')
+            ->withInput()
+            ->withErrors($validator);
+        }
+
+        //以下に登録処理を記述（Eloquentモデル）
+        $posts = new Post;
+        $posts->post_title = $request->post_title;
+        $posts->post_content = $request->post_content;
+        $posts->user_id = Auth::id();//ここでログインしているユーザidを登録しています
+        $posts->save();
+        return redirect('/');
+    }
 }

@@ -27,12 +27,12 @@
       <p>さん</p>
       <div id="accordion" class="accordion-container">
         <h4 class="accordion-title js-accordion-title"><img src="images/icon1.png"></h4>
-        <div class="accordion-content">
-          <p><a href="/top">Home</a></p>
-          <p><a href="/profile">プロフィール</a></p>
-          <p><a href="/logout">ログアウト</a></p>
+        <ul class="accordion-content">
+          <li><a href="/top">Home</a></li>
+          <li><a href="/profile">プロフィール</a></li>
+          <li><a href="/logout">ログアウト</a></li>
       <!-- aタグを使用することで、リンク先を指定することができます。liタグ内に記述したaタグの「href属性」に、それぞれのアンカーリンク同一ページ内のリンク先を設定します。なお、同一ページ内のリンクは、「id属性」で指定された場所まで「href=”#○○”」と記述することで移動ができます。 -->
-        </div>
+        </ul>
       </div>
     </header>
     <div id="row">
@@ -62,7 +62,7 @@
     <footer>
     </footer>
     <!-- <script src="{{ asset('js/app.js') }}"></script> -->
-    <script src=“https://code.jquery.com/jquery-3.6.1.min.js”></script>
-    <script src="{{ asset('js/SNS.js') }}"></script>
+    <script src=“https://code.jquery.com/jquery-3.6.0.min.js”></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
