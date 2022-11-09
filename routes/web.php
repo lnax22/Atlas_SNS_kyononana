@@ -34,7 +34,7 @@ Route::get('/logout','Auth\LoginController@logout');
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register','Auth\RegisterController@register');
 
-//完了画面
+//登録完了画面
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
@@ -44,13 +44,24 @@ Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
 
-Route::get('/search','UsersController@index');
+// 検索画面
+Route::get('/search','UsersController@search');
+
+// 検索結果の表示
+
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 
+
 // 投稿画面の表示
-Route::get('post/{id}/index', 'PostsController@index');
+Route::get('/posts', 'PostsController@index');
 
 // 投稿処理
-Route::post('posts', 'PostsController@index');
+Route::post('/posts', 'PostsController@store');
+
+// 投稿削除
+Route::get('/posts/{user_id}/delete','PostsController@delete');
+
+// 投稿の編集
+Route::get('/posts/{user_id}/edit','PostsController@edit');

@@ -2,7 +2,7 @@
 html{
 }
 body{
-    width: 970px;
+    width: 100%;
     padding: none;
     margin-right: auto;
     margin-left: auto;
@@ -49,7 +49,7 @@ header{
 .accordion-container .accordion-title:hover,
 .accordion-container .accordion-title:active,
 .accordion-container .content-entry.open .accordion-title {
-    background-color: #0000FF;
+    background-color: #000000;
     color: white;
 }
 

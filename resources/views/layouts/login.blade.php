@@ -23,8 +23,8 @@
 <body>
     <header>
     <!-- <img src="表示する画像のパス(場所)" alt="表示画像の説明文言"> -->
-    <li><a href="/top"><img src="images/atlas.png"></a></li>
-      <p>さん</p>
+     <a href="/top"><img src="images/atlas.png"></a>
+      <p>{{session('name')}}さん</p>
       <div id="accordion" class="accordion-container">
         <h4 class="accordion-title js-accordion-title"><img src="images/icon1.png"></h4>
         <ul class="accordion-content">
@@ -42,7 +42,7 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>さんの</p>
+                <p>{{session('name')}}さんの</p>
                 <div>
                 <p>フォロー数</p>
                 <p>〇〇名</p>
@@ -62,7 +62,7 @@
     <footer>
     </footer>
     <!-- <script src="{{ asset('js/app.js') }}"></script> -->
-    <script src=“https://code.jquery.com/jquery-3.6.0.min.js”></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

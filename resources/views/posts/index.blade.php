@@ -16,25 +16,25 @@ empty関数は変数が存在しない、または空であればtrueを返す�
 <!-- この1行で、オブジェクト指向のクラスと同じように、継承をおこなうことができるようになります。引数の中にかいてある「‘layouts.login’」の部分は、ディレクトリresource/viewsの直下を起点として、どの「○○.blade.php」の内容を受け継ぐかを決める役割を担っています -->
 
 @section('content')
-<div class="card-body">
-	<div class="card-title">
-		つぶやき
-  </div>
- <!-- 投稿フォーム -->
- <form action="{{ url('posts') }}" method="POST"
- class="form-horizontal"><!-- アクションでURLを指定 -->
-	{{ csrf_field() }}
-	<div class="form-group">
-	{!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください']) !!}
-		<div class="col-sm-6">
-			みんなの投稿
-			<input type="text" name="post_title" class="form-control">
-	  </div>
-		<label for="message"></label>
-		<textarea id="message" name="message"></textarea>
-	</div>
-	<button type="submit" class="btn btn-success pull-right"><img src="images/edit.png"></button>
-   </div>
-  </div>
-</form>
+<div class="table-responsive">
+	<table class="table table-hover">
+		自分のつぶやき
+  <!-- 投稿フォーム -->
+  <form action="posts" method="POST" class="form-horizontal"><!-- アクションでURLを指定 -->
+  {{ csrf_field() }}
+	 <div class="form-group">
+	 {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください']) !!}
+	 <!-- Form::input('type属性','name属性','フォーム内に初めから入れる値の指定',[その他属性をまとめて指定]) -->
+	 </div>
+	 <button type="submit" class="btn btn-success pull-right">書き込む</button>
+	@foreach ($posts as $posts)
+		 <td>{{$posts->post}}</td>
+		 <!-- <td>{{$posts->user_id}}</td> -->
+		 <td><a class="btn btn-danger" href="/posts/{{$posts->user_id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a></td>
+
+   </tr>
+  @endforeach
+  </form>
+ </table>
+</div>
 @endsection
