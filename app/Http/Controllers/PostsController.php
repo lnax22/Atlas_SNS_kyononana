@@ -39,27 +39,34 @@ class PostsController extends Controller
     }
 
     // 投稿の編集
-    // public function edit($user_id)
+    // public function edit($id)
     // {
-    // $posts = Post::findOrFail($user_id);
+    // $posts = Post::findOrFail($id);
     // return view('posts.index', ['post' => $posts]);
     // }
 
-    // 投稿の編集実行
+    // 投稿の更新
+    // 1つ目は、name属性が「upPost」「id」で指定されているフォームのテキストを、別々の変数で取得しています。2つ目は「\DB::~~」と書かれている箇所です。改行されていますが、最後に「->update();」と書かれているので、postsテーブルのレコードをここで更新しています。「where」でpostsテーブルのidカラムがフォームから持ってきた$id変数の値と一致する箇所の投稿内容を変更するという指示を出しているのです。最後のリダイレクトで指定したURLは、投稿一覧ページへとなっていますね。
+
     public function update(Request $request)
     {
+        $id = $request->input('id');
+        $up_post = $request->input('upPost');
+        // dd($up_post);
         \DB::table('posts')
-            ->where('user_id', $user_id)
-            ->update();
+            ->where('id', $id)
+            ->update(
+                ['post' => $up_post]
+            );
 
         return redirect('top');
     }
 
     //投稿の消去
-    public function delete($user_id)
+    public function delete($id)
     {
         \DB::table('posts')
-            ->where('user_id', $user_id)
+            ->where('id', $id)
             ->delete();
 
         return redirect('top');

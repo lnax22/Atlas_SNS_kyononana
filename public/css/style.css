@@ -1,6 +1,12 @@
 @charset "utf-8";
 html{
 }
+/* ログイン画面 */
+
+
+
+
+
 body{
     width: 100%;
     padding: none;
@@ -25,6 +31,7 @@ header{
     border-left: 1px solid #727272;
 }
 
+/* アコーディオンメニュー */
 .accordion-container {
     position: relative;
     width: 100%;
@@ -37,20 +44,19 @@ header{
 .accordion-container .accordion-title {
     display:block;
     position: relative;
-    margin: 0;
+    margin: 0 0 0 auto;
     padding: 0.625em 0.625em 0.625em 2em;
     font-size: 1.25em;
     font-weight: normal;
     color: #fff;
-    background: #000;
-    cursor: poin
+    background: #186AC9;
 }
 
 .accordion-container .accordion-title:hover,
 .accordion-container .accordion-title:active,
 .accordion-container .content-entry.open .accordion-title {
-    background-color: #000000;
-    color: white;
+    background-color: #186AC9;
+
 }
 
 .accordion-container .accordion-title:hover i:before,
@@ -87,10 +93,67 @@ header{
 .accordion-content {
     display: none;
     padding-left: 2.3125em;
+    background-color: #FFFFFF;
 }
 
-/* CSS for CodePen */
 .accordion-container {
     width: 300px;
     margin: 1.875em auto;
+}
+
+
+/* 投稿編集のモーダルの中身 */
+.content {
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal__bg {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+
+.modal__content {
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+}
+
+
+/* 投稿フォーム */
+.form-control{
+    height: 4.4em;
+    width: 70%;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 0 0 1px #ccc inset;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.form-control:focus{
+    outline: 0;
+    box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
+}
+
+
+.br::before {
+    content: "\A";
+    white-space: pre;
 }

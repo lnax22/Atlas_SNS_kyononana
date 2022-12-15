@@ -20,21 +20,36 @@ empty関数は変数が存在しない、または空であればtrueを返す�
 	<table class="table table-hover">
 		自分のつぶやき
   <!-- 投稿フォーム -->
-  <form action="posts" method="POST" class="form-horizontal"><!-- アクションでURLを指定 -->
+  <form action="posts" method="POST"><!-- アクションでURLを指定 -->
   {{ csrf_field() }}
 	 <div class="form-group">
-	 {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください']) !!}
+	 <!-- {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください']) !!} -->
 	 <!-- Form::input('type属性','name属性','フォーム内に初めから入れる値の指定',[その他属性をまとめて指定]) -->
+   <input type="text" name="newPost" class="form-control">
 	 </div>
-	 <button type="submit" class="btn btn-success pull-right">書き込む</button>
+	 <button type="submit" class="btn btn-success pull-right">つぶやく</button>
+</form>
+
 	@foreach ($posts as $posts)
 		 <td>{{$posts->post}}</td>
-		 <!-- <td>{{$posts->user_id}}</td> -->
-		 <td><a class="btn btn-danger" href="/posts/{{$posts->user_id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a></td>
-
-   </tr>
+		 <button><a class="btn btn-danger" href="/posts/{{$posts->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a></button>
+       <button><a class="js-modal-open" post="{{ $posts->post }}"  post_id="{{ $posts->id }}">編集</a></button>
   @endforeach
-  </form>
+	<!-- 投稿編集のモーダルの中身 -->
+    <div class="modal js-modal">
+        <div class="modal__bg js-modal-close"></div>
+        <div class="modal__content">
+           <form action="/update" method="POST">
+            <!-- 投稿内容 // 取得した投稿内容をモーダルの中身へ渡す-->
+              <textarea name="upPost" class="modal_post"></textarea>
+             <!-- 投稿のID（どこの投稿なのか） // 取得した投稿のidをモーダルの中身へ渡す-->
+              <input type="hidden" name="id" class="modal_id" value="">
+              <input type="submit" value="更新">
+                {{ csrf_field() }}
+           </form>
+           <a class="js-modal-close" href="">閉じる</a>
+        </div>
+    </div>
  </table>
 </div>
 @endsection
