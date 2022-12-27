@@ -3,12 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\User;
-// use Illuminate\Support\Facades\Validator;
-// use Illuminate\Validation\Rule;
-// use App\Models\User;
-// use App\Models\Tweet;
-// use App\Models\Follower;
 
 
 class UsersController extends Controller
@@ -45,5 +41,36 @@ class UsersController extends Controller
         // ページ更新時にクエリパラメータが消えないようにkeywordも渡す
         // $params = array('posts'   => $posts,'keyword' => $keyword);
         // return view('/search', $params);
+
+    //フォローする
+     public function follow($id)
+    {
+        $following_id = Auth::id();
+        //Auth::idはログインしているユーザーのIDを取得する
+
+        \DB::table('follows')->insert([
+            'following_id' => $following_id,
+            'followed_id' => $id
+            //$idはフォローされたユーザーのid
+            // カラムの名前=>入れたい値
+        ]);
+            return back();
+    }
+
+    //フォロー解除
+     public function unFollow($id)
+     {
+        $following_id = Auth::id();
+
+        \DB::table('follows')
+            ->where('followed_id', $id)
+            ->where('following_id', $following_id)
+            //ログインしているユーザーがフォロを外す、他ユーザーは反映されない
+            ->delete();
+
+            return back();
+     }
+
+
 
 }

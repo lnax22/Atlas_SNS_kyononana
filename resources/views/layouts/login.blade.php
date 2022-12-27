@@ -28,8 +28,8 @@
       <div id="accordion" class="accordion-container">
         <h4 class="accordion-title js-accordion-title"><img src="images/icon1.png"></h4>
         <ul class="accordion-content">
-          <li><a href="/top">Home</a></li>
-          <li><a href="/profile">プロフィール</a></li>
+          <li><a href="/top">HOME</a></li>
+          <li><a href="/profile">プロフィール編集</a></li>
           <li><a href="/logout">ログアウト</a></li>
       <!-- aタグを使用することで、リンク先を指定することができます。liタグ内に記述したaタグの「href属性」に、それぞれのアンカーリンク同一ページ内のリンク先を設定します。なお、同一ページ内のリンクは、「id属性」で指定された場所まで「href=”#○○”」と記述することで移動ができます。 -->
         </ul>

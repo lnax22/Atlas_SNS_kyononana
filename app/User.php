@@ -63,6 +63,6 @@ class User extends Authenticatable
     // postsテーブルとのリレーション（主テーブル側）//1対多の「多」側なので複数形
 
     public function posts(){
-        return $this->hasMany('App/Post');
+        return $this->hasMany('App\Post');
     }
 }

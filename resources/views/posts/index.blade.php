@@ -31,7 +31,10 @@ empty関数は変数が存在しない、または空であればtrueを返す�
 </form>
 
 	@foreach ($posts as $posts)
-		 <td>{{$posts->post}}</td>
+   <!-- $postsはPostモデル経由で取得している情報になるのでPostモデルに定義されているusersテーブルとのリレーションを定義しているuserメソッドにアクセスしuserの情報を取得している流れになります。 -->
+       <p>名前:{{$posts->user->username}}</p>
+      <!-- userはメゾット名（User.phpからデータを取ってきている） -->
+       <p>投稿内容：{{ $posts->post }}</p>
 		 <button><a class="btn btn-danger" href="/posts/{{$posts->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a></button>
        <button><a class="js-modal-open" post="{{ $posts->post }}"  post_id="{{ $posts->id }}">編集</a></button>
   @endforeach

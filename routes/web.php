@@ -22,6 +22,8 @@
 
 
 //Route::get or post('どのURLの時に','PostsController@何の記述の処理が行われるか');
+//aタグ->get,formタグ->postがわかりやすい
+
 //ログアウト中のページ
 //ログイン
 Route::get('/login', 'Auth\LoginController@login');
@@ -38,33 +40,31 @@ Route::post('/register','Auth\RegisterController@register');
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
+
 //ログイン中のページ
 Route::get('/top','PostsController@index');
 
-
+// プロフィール編集
 Route::get('/profile','UsersController@profile');
 
 // 検索
 Route::get('/search','UsersController@search');
 
-// 検索ボタン
-
-
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
-
+// フォローリスト
+Route::get('/followList','PostsController@followList');
+// フォロワーリスト
+Route::get('/followerList','PostsController@followerList');
 
 // 投稿画面の表示
 Route::get('/posts', 'PostsController@index');
-
 // 投稿処理
 Route::post('/posts', 'PostsController@store');
-
 // 投稿削除
 Route::get('/posts/{id}/delete','PostsController@delete');
-
 // 投稿編集
 Route::post('/update', 'PostsController@update');
 
-//フォローボタン
-
+// フォローする
+Route::get('/users/{id}/follow','UsersController@follow');
+// フォロー解除
+Route::get('/users/{id}/unFollow','UsersController@unFollow');

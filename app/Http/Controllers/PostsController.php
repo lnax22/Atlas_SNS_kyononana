@@ -14,7 +14,7 @@ class PostsController extends Controller
     // ルーティングの第2引数から呼び出せるように
     public function index()
     {
-          $posts = \DB::table('posts')->get();
+          $posts = Post::with('user')->get();
           return view('posts.index',['posts'=>$posts]);
           // 「ビューファイルを引っ張ってくる」という処理内容です。
     }
@@ -37,13 +37,6 @@ class PostsController extends Controller
         ]);
             return redirect('top');
     }
-
-    // 投稿の編集
-    // public function edit($id)
-    // {
-    // $posts = Post::findOrFail($id);
-    // return view('posts.index', ['post' => $posts]);
-    // }
 
     // 投稿の更新
     // 1つ目は、name属性が「upPost」「id」で指定されているフォームのテキストを、別々の変数で取得しています。2つ目は「\DB::~~」と書かれている箇所です。改行されていますが、最後に「->update();」と書かれているので、postsテーブルのレコードをここで更新しています。「where」でpostsテーブルのidカラムがフォームから持ってきた$id変数の値と一致する箇所の投稿内容を変更するという指示を出しているのです。最後のリダイレクトで指定したURLは、投稿一覧ページへとなっていますね。
@@ -71,33 +64,17 @@ class PostsController extends Controller
 
         return redirect('top');
     }
+
+    //フォローリスト
+    public function followList()
+    {
+        $posts = Post::with('user')->get();
+
+        return view('follows.followList',['posts'=>$posts]);
+    }
+
+    //フォロワーリスト
+    public function followerList()
+    {
+    }
 }
-
-
-
-
-//「php artisan」コマンドで取り入れたユーザー認証機能群である「auth認証」を適用
-    // public function __construct()
-    // {
-        // $this->middleware('auth');
-    // }
-//バリデーション
-        // $validator = Validator::make($request->all(), [
-        //     'following_id' => 'required|max:255',
-        //     'followed_id' => 'required|max:255',
-        // ]);
-
-        //バリデーション:エラー
-        // if ($validator->fails()) {
-        //     return redirect('/')
-        //     ->withInput()
-        //     ->withErrors($validator);
-        // }
-
-        //以下に登録処理を記述（Eloquentモデル）
-        // $posts = new follows;
-        // $posts-> following_id = $request->following_id;
-        // $posts->followed_id = $request->followed_id;
-        // $posts->following_id = Auth::id();//ここでログインしているユーザidを登録しています
-        // $posts->save();
-        // return redirect('/');

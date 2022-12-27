@@ -10,8 +10,10 @@
 
 @foreach ($users as $users)
 
-    <pre>{{ $users->username}}</pre>
-    <button><a class="follow-btn-box" href="/users/{{$users->id}}/search">フォローする</a></button>
+     <pre>{{ $users->username}}</pre>
+    <button><a class="follow-btn-box" href="/users/{{$users->id}}/follow">フォローする</a></button>
+    <button><a class="unFollow-btn-box" href="/users/{{$users->id}}/unFollow">フォロー解除</a></button>
+
 @endforeach
 
 
