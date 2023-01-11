@@ -50,7 +50,7 @@ empty関数は変数が存在しない、または空であればtrueを返す�
               <input type="submit" value="更新">
                 {{ csrf_field() }}
            </form>
-           <a class="js-modal-close" href="">閉じる</a>
+           <button><a class="js-modal-close" >閉じる</a></button>
         </div>
     </div>
  </table>

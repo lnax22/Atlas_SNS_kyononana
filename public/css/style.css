@@ -157,3 +157,7 @@ header{
     content: "\A";
     white-space: pre;
 }
+
+.bottom_space {
+    margin-bottom: 2.5em;
+}

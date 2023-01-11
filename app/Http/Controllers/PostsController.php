@@ -76,5 +76,6 @@ class PostsController extends Controller
     //フォロワーリスト
     public function followerList()
     {
+    
     }
 }

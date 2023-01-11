@@ -61,8 +61,17 @@ class User extends Authenticatable
 
 
     // postsテーブルとのリレーション（主テーブル側）//1対多の「多」側なので複数形
-
     public function posts(){
         return $this->hasMany('App\Post');
+    }
+
+    // followsテーブルとのリレーション（主テーブル側）//多対多の「多」なので複数形
+    //belongsToMany('関係するモデル', '中間テーブルのテーブル名', '中間テーブルで関係しているカラム(followsテーブルでこのメソッド名に適したもの)', '第3引数で書かれたカラムと関係しているカラム(第3引数とは違うfollowsテーブルのカラム)');
+    public function followed(){
+        return $this->belongsToMany('App\User','follows','followed_id','id');
+    }
+
+    public function following(){
+        return $this->belongsToMany('App\User','follows','following_id','id');
     }
 }
