@@ -51,9 +51,9 @@ Route::get('/profile','UsersController@profile');
 Route::get('/search','UsersController@search');
 
 // フォローリスト
-Route::get('/followList','PostsController@followList');
+Route::get('/followList','FollowsController@followList');
 // フォロワーリスト
-Route::get('/followerList','PostsController@followerList');
+Route::get('/followerList','FollowsController@followerList');
 
 // 投稿画面の表示
 Route::get('/posts', 'PostsController@index');

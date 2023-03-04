@@ -53,6 +53,8 @@ class LoginController extends Controller
     }
 
     protected function logout(\Illuminate\Http\Request $request) {
-      return redirect('login');
+        //ログアウト用のメソッド
+        Auth::logout();
+        return redirect('login');
     }
 }

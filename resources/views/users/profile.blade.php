@@ -1,17 +1,38 @@
+
 @extends('layouts.login')
 
 @section('content')
 
-<form>
-<p class="bottom_space">username <input type="text" name="name" ></p>
-<p class="bottom_space">mail adress <input type="text" name="name" ></p>
-<p class="bottom_space">pass word <input type="text" name="name" ></p>
-<p class="bottom_space">password confirm  <input type="text" name="name" ></p>
-<p class="bottom_space">bio <input type="text" name="name" ></p>
-<p class="bottom_space">icon image
+<form class=""  method="POST" enctype="multipart/form-data">
+  <?php $user = Auth::user(); ?>
+  <div class="profile-container">
+   <figure><img width="32" src="{{asset('storage/'. $user->images)}}"></figure>
+   <div class="form-update">
+    <div class="profile-wrapper">
+      user name<input type="text" value="{{ $user->username }}" class="input" name="name">
+    </div>
+    <div class="profile-wrapper">
+      mail adress<input type="text" value="{{ $user->mail }}" class="input" name="mail">
+    </div>
+    <div class="profile-wrapper">
+      password<input type="password" value="{{ $user->password }}"class="input" name="password">
+    </div>
+    <div class="profile-wrapper">
+      password confirm<input type="password" value="{{ $user->password }}" class="input" name="password">
+    </div>
+    <span class="text-danger">{{ $errors->first('password_confirmation')}}</span>
+    <div class="profile-wrapper">
+      bio<input type="bio" value="{{ $user->bio }}"  rows="2"></input>
+    </div>
+    <label class="form-group mb-3">
+      icon image<input type="file" name="images" class="custom-file-input" id="fileImage">
+    </label>
+   </div>
+
+   <button type="submit" class="btn btn-primary btn-profileUpdate">更新</button>
+  </div>
 </form>
 
-<input type="submit" value="更新する">
 
 
 @endsection

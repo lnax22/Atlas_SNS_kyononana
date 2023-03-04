@@ -68,10 +68,33 @@ class User extends Authenticatable
     // followsテーブルとのリレーション（主テーブル側）//多対多の「多」なので複数形
     //belongsToMany('関係するモデル', '中間テーブルのテーブル名', '中間テーブルで関係しているカラム(followsテーブルでこのメソッド名に適したもの)', '第3引数で書かれたカラムと関係しているカラム(第3引数とは違うfollowsテーブルのカラム)');
     public function followed(){
-        return $this->belongsToMany('App\User','follows','followed_id','id');
+        return $this->belongsToMany('App\User','follows','followed_id','following_id');
     }
 
     public function following(){
-        return $this->belongsToMany('App\User','follows','following_id','id');
+        return $this->belongsToMany('App\User','follows','following_id','followed_id');
+    }
+
+    public function follow($user_id)
+    {
+        return $this->follows()->attach($user_id);
+    }
+
+    // フォロー解除する
+    public function unfollow($user_id)
+    {
+        return $this->follows()->detach($user_id);
+    }
+
+    // フォローしているか
+    public function isFollowing($user_id)
+    {
+        return (boolean) $this->follows()->where('followed_id', $user_id)->first(['follows.id']);
+    }
+
+    // フォローされているか
+    public function isFollowed($user_id)
+    {
+        return (boolean) $this->followers()->where('following_id', $user_id)->first(['follows.id']);
     }
 }

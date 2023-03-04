@@ -15,17 +15,16 @@ class UsersController extends Controller
     }
     public function search(Request $request)
     {
-        $users=User::all();
-        // $keyword = $request->input('keyword');
-        // // dd($keyword);
+        $keyword = $request->input('keyword');
+        // dd($keyword);
 
-        // if (!empty($keyword)) {
-        //     $users = User::where('username', 'LIKE' , "%{$keyword}%")->get();
-        // }
-        // else{
-        //     $users=User::all();
-        //     // ユーザー情報を全部持ってくる
-        // }
+        if (!empty($keyword)) {
+            $users = User::where('username', 'LIKE' , "%".$keyword."%")->get();
+        }
+        else{
+            $users=User::all();
+            // ユーザー情報を全部持ってくる
+        }
 
         return view('users.search',['users'=>$users]);
         // $request->session()->put('keyword',$data['keyword']);
@@ -43,8 +42,8 @@ class UsersController extends Controller
         // return view('/search', $params);
 
     //フォローする
-     public function follow($id)
-    {
+     public function follow(Request $Request)
+     {
         $following_id = Auth::id();
         //Auth::idはログインしているユーザーのIDを取得する
 
@@ -58,7 +57,7 @@ class UsersController extends Controller
     }
 
     //フォロー解除
-     public function unFollow($id)
+     public function unFollow(Request $Request)
      {
         $following_id = Auth::id();
 

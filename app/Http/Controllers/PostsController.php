@@ -15,6 +15,7 @@ class PostsController extends Controller
     public function index()
     {
           $posts = Post::with('user')->get();
+          //PostテーブルとUserテーブルを取得している
           return view('posts.index',['posts'=>$posts]);
           // 「ビューファイルを引っ張ってくる」という処理内容です。
     }
@@ -65,17 +66,4 @@ class PostsController extends Controller
         return redirect('top');
     }
 
-    //フォローリスト
-    public function followList()
-    {
-        $posts = Post::with('user')->get();
-
-        return view('follows.followList',['posts'=>$posts]);
-    }
-
-    //フォロワーリスト
-    public function followerList()
-    {
-    
-    }
 }

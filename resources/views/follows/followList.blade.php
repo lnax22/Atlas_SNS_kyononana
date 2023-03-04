@@ -1,7 +1,6 @@
 @extends('layouts.login')
 
 @section('content')
-
   @foreach ($posts as $posts)
    <!-- $postsはPostモデル経由で取得している情報になるのでPostモデルに定義されているusersテーブルとのリレーションを定義しているuserメソッドにアクセスしuserの情報を取得している流れになります。 -->
        <p>名前:{{$posts->user->username}}</p>
