@@ -24,9 +24,8 @@
 //Route::get or post('どのURLの時に','PostsController@何の記述の処理が行われるか');
 //aタグ->get,formタグ->postがわかりやすい
 
-//ログアウト中のページ
 //ログイン
-Route::get('/login', 'Auth\LoginController@login');
+Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 
 //ログアウト
@@ -41,7 +40,7 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 
-//ログイン中のページ
+//トップページ
 Route::get('/top','PostsController@index');
 
 // プロフィール編集
@@ -65,6 +64,6 @@ Route::get('/posts/{id}/delete','PostsController@delete');
 Route::post('/update', 'PostsController@update');
 
 // フォローする
-Route::get('/users/{id}/follow','UsersController@follow');
+Route::get('/users/{id}/Follow','UsersController@Follow');
 // フォロー解除
 Route::get('/users/{id}/unFollow','UsersController@unFollow');

@@ -13,12 +13,15 @@ class UsersController extends Controller
     public function profile(){
         return view('users.profile');
     }
+
+
     public function search(Request $request)
     {
         $keyword = $request->input('keyword');
         // dd($keyword);
 
         if (!empty($keyword)) {
+            //もしキーワードが空ではない場合は
             $users = User::where('username', 'LIKE' , "%".$keyword."%")->get();
         }
         else{
@@ -26,7 +29,7 @@ class UsersController extends Controller
             // ユーザー情報を全部持ってくる
         }
 
-        return view('users.search',['users'=>$users]);
+        return view('users.search',['users'=>$users,'keyword'=>$keyword]);
         // $request->session()->put('keyword',$data['keyword']);
         // search.blade.phpで使えるように定義
 
