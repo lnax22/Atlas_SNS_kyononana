@@ -14,13 +14,13 @@
  @if(Auth()->user()->isFollowing($user->id))
 <!-- if文は一個 -->
  <form action="/users/{{$user->id}}/Follow, ['id'=>$user->id]) " method="POST">
-    <button type="submit" class="btn btn-danger">{{$user->id}}フォロー解除</button>
-  </form>
+    <button type="submit" class="btn btn-danger">{{$users->username}}フォロー解除</button>
+ </form>
     <!--ifで切り替え-->
  @else
  <form action="/users/{{$user->id}}/unFollow,['id'=>$user->id])}}" method="POST">
-   <button type="submit" class="btn btn-primary">{{$user->id}}フォローする</button>
-  </form>
+   <button type="submit" class="btn btn-primary">{{$users->username}}フォローする</button>
+ </form>
  @endif
 
 
