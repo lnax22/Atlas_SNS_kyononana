@@ -3,9 +3,15 @@
 
 @section('content')
 
-<form class=""  method="POST" enctype="multipart/form-data">
-  <?php $user = Auth::user(); ?>
-  <div class="profile-container">
+<form action="/profile" method="POST" enctype="multipart/form-data">
+  @csrf
+  <!-- バリデーション -->
+  @foreach ($errors->all() as error)
+  <li>{{$error}}</li>
+  @endforeach
+
+<?php $user = Auth::user(); ?>
+<div class="profile-container">
    <figure><img width="32" src="{{asset('storage/'. $user->images)}}"></figure>
    <div class="form-update">
     <div class="profile-wrapper">
@@ -30,7 +36,8 @@
    </div>
 
    <button type="submit" class="btn btn-primary btn-profileUpdate">更新</button>
-  </div>
+
+</div>
 </form>
 
 

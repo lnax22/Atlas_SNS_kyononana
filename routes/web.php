@@ -25,7 +25,7 @@
 //aタグ->get,formタグ->postがわかりやすい
 
 //ログイン
-Route::get('/login', 'Auth\LoginController@login')->name('login');
+Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 
 //ログアウト
@@ -50,7 +50,7 @@ Route::get('/profile','UsersController@profile');
 Route::get('/search','UsersController@search');
 
 // フォローリスト
-Route::get('/followList','FollowsController@followList');
+Route::get('/followList', 'FollowsController@followList');
 // フォロワーリスト
 Route::get('/followerList','FollowsController@followerList');
 
@@ -64,6 +64,11 @@ Route::get('/posts/{id}/delete','PostsController@delete');
 Route::post('/update', 'PostsController@update');
 
 // フォローする
-Route::get('/users/{id}/Follow','UsersController@Follow');
+Route::get('/users/{id}/Follow','FollowsController@Follow');
 // フォロー解除
-Route::get('/users/{id}/unFollow','UsersController@unFollow');
+Route::get('/users/{id}/unFollow','FollowsController@unFollow');
+
+//フォロー,フォロワー数の表示
+Route::group(['middleware' => 'auth'], function() {
+Route::get('/show','FollowsController@show');
+});

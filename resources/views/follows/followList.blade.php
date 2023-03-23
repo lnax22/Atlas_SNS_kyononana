@@ -1,10 +1,12 @@
 @extends('layouts.login')
 
 @section('content')
- @foreach ($posts as $post)
-   <!-- $postsはPostモデル経由で取得している情報になるのでPostモデルに定義されているusersテーブルとのリレーションを定義しているuserメソッドにアクセスしuserの情報を取得している流れになります。 -->
-       <p>名前:{{$posts->user->username}}</p>
-      <!-- userはメゾット名（User.phpからデータを取ってきている） -->
-       <p>投稿内容：{{ $posts->post }}</p>
- @endforeach
+<div class="container">
+  <section class="followList"></section>
+    <h1>Follow List</h1>
+    @foreach ($timelines as $timelines)
+    {{ $timelines->user_id }}
+    {{ $timelines->post }}
+    @endforeach
+</div>
 @endsection

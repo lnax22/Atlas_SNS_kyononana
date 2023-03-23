@@ -25,7 +25,7 @@ empty関数は変数が存在しない、または空であればtrueを返す�
 	 <div class="form-group">
 	 <!-- {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください']) !!} -->
 	 <!-- Form::input('type属性','name属性','フォーム内に初めから入れる値の指定',[その他属性をまとめて指定]) -->
-   <input type="text" name="newPost" class="form-control">
+   <input type="text" name="newPost" class="form-control" placeholder="投稿内容を入力してください">
 	 </div>
 	 <button type="submit" class="btn btn-success pull-right">つぶやく</button>
 </form>
@@ -35,9 +35,11 @@ empty関数は変数が存在しない、または空であればtrueを返す�
        <p>名前:{{$posts->user->username}}</p>
       <!-- userはメゾット名（User.phpからデータを取ってきている） -->
        <p>投稿内容：{{ $posts->post }}</p>
+
+     <button><a class="js-modal-open" post="{{ $posts->post }}"  post_id="{{ $posts->id }}">編集</a></button>
 		 <button><a class="btn btn-danger" href="/posts/{{$posts->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a></button>
-       <button><a class="js-modal-open" post="{{ $posts->post }}"  post_id="{{ $posts->id }}">編集</a></button>
   @endforeach
+
 	<!-- 投稿編集のモーダルの中身 -->
     <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>

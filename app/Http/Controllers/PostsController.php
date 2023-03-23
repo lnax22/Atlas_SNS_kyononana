@@ -6,15 +6,27 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
 use App\User;
+use App\Follow;
 use Validator;
 
 class PostsController extends Controller
 {
-    // 投稿の表示
+    //auth認証
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    // 投稿の表示(top画面の表示)
     // ルーティングの第2引数から呼び出せるように
     public function index()
     {
-          $posts = Post::with('user')->get();
+        $user=Auth::user(); //ログインしているユーザーの取得
+        // $following_id=Auth::user()->pluck(); //フォローしているユーザーのIDを取得
+         $posts = Post::with('user') //編集された順
+        //    ->with('user')->whereIn('user_id',$user) //userテーブル、user_idカラムのログインユーザーのIDを取得
+        //    ->orWhere('user_id',$following_id) //さらにフォローしているユーザー
+           ->get(); //取得
           //PostテーブルとUserテーブルを取得している
           return view('posts.index',['posts'=>$posts]);
           // 「ビューファイルを引っ張ってくる」という処理内容です。
@@ -65,5 +77,11 @@ class PostsController extends Controller
 
         return redirect('top');
     }
+
+    //フォロー数の表示
+//     public function FollowCounts(){
+//         $posts = Post::get();
+//         return view('yyyy', compact('posts'));
+// }
 
 }

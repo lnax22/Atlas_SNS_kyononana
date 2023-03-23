@@ -13,17 +13,10 @@
 <!-- （コントローラーから引っ張ってくる as ここで定義する） -->
  @if(Auth()->user()->isFollowing($user->id))
 <!-- if文は一個 -->
- <form action="/users/{{$user->id}}/Follow, ['id'=>$user->id]) " method="POST">
-    <button type="submit" class="btn btn-danger">{{$users->username}}フォロー解除</button>
- </form>
-    <!--ifで切り替え-->
+ {{$user->username}}<button><a class="btn btn-danger" href="/users/{{$user->id}}/unFollow">フォロー解除</a></button>
  @else
- <form action="/users/{{$user->id}}/unFollow,['id'=>$user->id])}}" method="POST">
-   <button type="submit" class="btn btn-primary">{{$users->username}}フォローする</button>
- </form>
+ {{$user->username}}<button><a class="btn btn-primary" href="/users/{{$user->id}}/Follow">フォローする</a></button>
  @endif
-
-
 
  @endforeach
 

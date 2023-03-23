@@ -72,7 +72,7 @@ class User extends Authenticatable
         return $this->belongsToMany('App\User','follows','followed_id','following_id');
     }
 
-    public function following(){
+    public function follows(){
         return $this->belongsToMany('App\User','follows','following_id','followed_id');
     }
 
@@ -90,12 +90,12 @@ class User extends Authenticatable
     // フォローしているか
     public function isFollowing($user_id)
     {
-        return (boolean) $this->following()->where('followed_id', $user_id)->first(['follows.id']);
+        return (bool) $this->follows()->where('followed_id', $user_id)->first(['follows.id']);
     }
 
     // フォローされているか
     public function isFollowed($user_id)
     {
-        return (boolean) $this->followed()->where('following_id', $user_id)->first(['follows.id']);
+        return (bool) $this->followed()->where('following_id', $user_id)->first(['follows.id']);
     }
 }

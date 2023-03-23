@@ -5,15 +5,45 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Validator;
 
 
 class UsersController extends Controller
 {
-    //
-    public function profile(){
-        return view('users.profile');
-    }
+    public function profile(Request $request)
+    {
+        //バリデーション処理
+        $request->validate([
+            'name'=> 'required|string|max:255',
+            'mail'=> 'required|string|email|max:255|unique:users',
+            'password'=> 'required|string|min:4|confirmed',
+            'bio'=> 'required|string|max:150',
+            'image'=> 'image|mimes:jpg,png,gif',
+        ]);
 
+        $id=Auth::id();
+        $username=$request->input('username');
+        $mail=$request->input('mail');
+        $password=$request->input('password');
+        $bio=$request->input('bio');
+        $image=$request->file('iconImage')->getClientOriginalName();
+
+
+        if($image !=null){//画像データがあるとき
+            $image->store('public/images');
+            \DB::table('users')
+               ->where('id',$id)
+               ->update([
+                'images'=>basename($image),
+               ]);
+        }
+
+        return view('users.profile',);
+    }
+// 'username'=>$username,
+// 'mail'=>$mail,
+// 'password'=>bcrypt($request['password']),
+//  'bio'=>$bio,
 
     public function search(Request $request)
     {
@@ -34,44 +64,6 @@ class UsersController extends Controller
         // search.blade.phpで使えるように定義
 
     }
-
-    // public function search(Request $request){
-    //     $keyword = $request->input('keyword', '');
-
-    //     $posts = Post::where('title', 'LIKE' , "%{$keyword}%")->get()->all();
-
-        // ページ更新時にクエリパラメータが消えないようにkeywordも渡す
-        // $params = array('posts'   => $posts,'keyword' => $keyword);
-        // return view('/search', $params);
-
-    //フォローする
-     public function follow(Request $Request)
-     {
-        $following_id = Auth::id();
-        //Auth::idはログインしているユーザーのIDを取得する
-
-        \DB::table('follows')->insert([
-            'following_id' => $following_id,
-            'followed_id' => $id
-            //$idはフォローされたユーザーのid
-            // カラムの名前=>入れたい値
-        ]);
-            return back();
-    }
-
-    //フォロー解除
-     public function unFollow(Request $Request)
-     {
-        $following_id = Auth::id();
-
-        \DB::table('follows')
-            ->where('followed_id', $id)
-            ->where('following_id', $following_id)
-            //ログインしているユーザーがフォロを外す、他ユーザーは反映されない
-            ->delete();
-
-            return back();
-     }
 
 
 
