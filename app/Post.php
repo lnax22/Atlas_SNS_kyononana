@@ -16,8 +16,10 @@ class Post extends Model
     }
 
     //フォローしている人のつぶやき表示
-    public function getTimeLines(Int $user_id)
+    public function getTimeLines(Int $user_id, Array $follow_ids)
     {
-        return $this->where('user_id','<>',  $user_id)->orderBy('created_at', 'DESC')->paginate();
+        //whereInは値が複数取り得る場合に使用、自分がフォローしている人の投稿
+        //orderByは登録日の昇順
+        return $this->whereIn('user_id', $follow_ids)->orderBy('created_at', 'DESC')->paginate();
     }
 }

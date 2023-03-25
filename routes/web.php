@@ -50,7 +50,9 @@ Route::get('/profile','UsersController@profile');
 Route::get('/search','UsersController@search');
 
 // フォローリスト
+Route::group(['middleware' => 'auth'], function() {
 Route::get('/followList', 'FollowsController@followList');
+});
 // フォロワーリスト
 Route::get('/followerList','FollowsController@followerList');
 

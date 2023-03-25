@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
 use App\User;
+use App\Follow;
 
 
 class FollowsController extends Controller
