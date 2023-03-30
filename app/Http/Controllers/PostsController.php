@@ -77,10 +77,5 @@ class PostsController extends Controller
         return redirect('top');
     }
 
-    //フォロー数の表示
-//     public function FollowCounts(){
-//         $posts = Post::get();
-//         return view('yyyy', compact('posts'));
-// }
 
 }
