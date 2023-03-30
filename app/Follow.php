@@ -11,11 +11,6 @@ class Follow extends Model
     'following_id', 'followed_id'
   ];
 
-  //フォローしている人のつぶやき表示
-  public function followingIds(Int $user_id)
-  {
-      return $this->where('following_id', $user_id)->get();
-  }
 
   //フォロー数の表示
   public function getFollowCount($user_id)

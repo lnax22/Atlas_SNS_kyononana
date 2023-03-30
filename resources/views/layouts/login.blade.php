@@ -24,7 +24,7 @@
     <header>
     <!-- <img src="表示する画像のパス(場所)" alt="表示画像の説明文言"> -->
      <a href="/top"><img src="images/atlas.png"></a>
-      <p>{{session('name')}}さん</p><img src="{{ asset('storage/images/' .Auth::user()->images) }}">
+      <p>{{ Auth::user()->username }}さん</p><img src="{{ asset('storage/images/' .Auth::user()->images) }}">
       <div id="accordion" class="accordion-container">
         <h4 class="accordion-title js-accordion-title"><img src="images/icon1.png"></h4>
         <ul class="accordion-content">
@@ -42,7 +42,7 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>{{session('name')}}さんの</p>
+                <p>{{ Auth::user()->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
                 <p>{{ Auth::user()->follows()->get()->count() }}名</p>

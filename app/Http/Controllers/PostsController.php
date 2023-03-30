@@ -23,10 +23,9 @@ class PostsController extends Controller
     {
         $user=Auth::user(); //ログインしているユーザーの取得
         // $following_id=Auth::user()->pluck(); //フォローしているユーザーのIDを取得
-         $posts = Post::with('user') //編集された順
+        $posts = Post::with('user')->get(); //編集された順
         //    ->with('user')->whereIn('user_id',$user) //userテーブル、user_idカラムのログインユーザーのIDを取得
         //    ->orWhere('user_id',$following_id) //さらにフォローしているユーザー
-           ->get(); //取得
           //PostテーブルとUserテーブルを取得している
           return view('posts.index',['posts'=>$posts]);
           // 「ビューファイルを引っ張ってくる」という処理内容です。

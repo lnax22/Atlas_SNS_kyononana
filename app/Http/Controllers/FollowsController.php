@@ -51,8 +51,6 @@ class FollowsController extends Controller
     //フォローリスト
     public function followList(Post $post, Follow $follow)
     {
-        // $following_id = Auth::user()->follows()->pluck('followed_id');  // フォローしているユーザーのidを取得
-        // //Auth::userはログインしているユーザーの情報.id（登録番号）を持ってくる
         // $users = User::whereIN('id',$following_id)->get();
         // //フォローしているユーザーのidを元に投稿内容を取得
         // $posts = Post::whereIn('user_id', $following_id)
@@ -63,37 +61,20 @@ class FollowsController extends Controller
         //画像アイコン
         // $images = DB::table('users')->get();
         // $images = auth()->user()->follows()->get();
-        $user = auth()->user();
-        $follow_ids = $follow->followingIds($user->id);
-        $following_ids = $follow_ids->pluck('followed_id')->toArray();
-        $timelines = $post->getTimelines($user->id, $following_ids);
-        return view('follows.followList',['timelines' => $timelines]);
+        // フォローしているユーザーのidを取得
+        $following_id = Auth::user()->follows()->pluck('followed_id');
+        // フォローしているユーザーのidを元に投稿内容を取得
+        $posts = Post::with('user')->whereIn('user_id', $following_id)->get();
+        return view('follows.followList', compact('posts'));
     }
 
     // フォロワーリスト
     public function followerList()
     {
-        $followed_id = Auth::user()->pluck('id');
-        $posts = Post::with('user')->where('id', $followed_id)->get();
+        $followed_id = Auth::user()->follows()->pluck('following_id');
+        $posts = Post::with('user')->where('user_id', $followed_id)->get();
 
-        return view('follows.followerList',['posts'=>$posts]);
+        return view('follows.followerList',compact('posts'));
     }
 
-    //フォロー,フォロワー数の表示
-    public function show(User $user, Follow $follow)
-    {
-        $login_user = auth()->user();
-        $is_following = $login_user->isFollowing($user->id);
-        $is_followed = $login_user->isFollowed($user->id);
-        $follow_count = $follow->getFollowCount($user->id);
-        $follower_count = $follow->getFollowerCount($user->id);
-
-        return view('users.show', [
-            'user'           => $user,
-            'is_following'   => $is_following,
-            'is_followed'    => $is_followed,
-            'follow_count'   => $follow_count,
-            'follower_count' => $follower_count
-        ]);
-    }
 }

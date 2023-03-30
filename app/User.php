@@ -76,17 +76,6 @@ class User extends Authenticatable
         return $this->belongsToMany('App\User','follows','following_id','followed_id');
     }
 
-    // public function Follow($user_id)
-    // {
-    //     return $this->follows()->attach($user_id);
-    // }
-
-    // // フォロー解除する
-    // public function unFollow($user_id)
-    // {
-    //     return $this->follows()->detach($user_id);
-    // }
-
     // フォローしているか
     public function isFollowing($user_id)
     {

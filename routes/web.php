@@ -50,9 +50,7 @@ Route::get('/profile','UsersController@profile');
 Route::get('/search','UsersController@search');
 
 // フォローリスト
-Route::group(['middleware' => 'auth'], function() {
 Route::get('/followList', 'FollowsController@followList');
-});
 // フォロワーリスト
 Route::get('/followerList','FollowsController@followerList');
 
@@ -70,7 +68,4 @@ Route::get('/users/{id}/Follow','FollowsController@Follow');
 // フォロー解除
 Route::get('/users/{id}/unFollow','FollowsController@unFollow');
 
-//フォロー,フォロワー数の表示
-Route::group(['middleware' => 'auth'], function() {
-Route::get('/show','FollowsController@show');
-});
+

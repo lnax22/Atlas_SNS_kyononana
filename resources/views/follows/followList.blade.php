@@ -2,8 +2,8 @@
 
 @section('content')
  <h1>Follow List</h1>
-    @foreach ($timelines as $timelines)
-    <p>{{ $timelines->user_id }}</p>
-    <p>{{ $timelines->post }}</p>
+    @foreach ($posts as $post)
+    <p>{{ $post->user->username }}</p>
+    <p>{{ $post->post }}</p>
     @endforeach
 @endsection
