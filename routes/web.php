@@ -44,7 +44,11 @@ Route::post('/added', 'Auth\RegisterController@added');
 Route::get('/top','PostsController@index');
 
 // プロフィール編集
+Route::post('/profile','UsersController@profile');
 Route::get('/profile','UsersController@profile');
+
+//プロフィール更新
+Route::post('/profile','UsersController@profileUpdate');
 
 // 検索
 Route::get('/search','UsersController@search');
@@ -67,5 +71,3 @@ Route::post('/update', 'PostsController@update');
 Route::get('/users/{id}/Follow','FollowsController@Follow');
 // フォロー解除
 Route::get('/users/{id}/unFollow','FollowsController@unFollow');
-
-

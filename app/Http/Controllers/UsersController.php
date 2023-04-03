@@ -10,40 +10,61 @@ use Validator;
 
 class UsersController extends Controller
 {
+    //auth認証
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    //プロフィール編集表示
     public function profile(Request $request)
     {
+        $user=Auth::user();
+
+        return view('users.profile',['user'=> $user]);
+    }
+
+    //プロフィール更新
+    protected function update(array $data)
+    {
+        $id=Auth::id();
+        return User::where('id', $id)->update([
+            'username'=> $data['username'],
+            'mail'=> $data['mail'],
+            'bio'=> $data['bio'],
+            'password'=> bcrypt($data['password']),
+        ]);
+    }
+
+    public function profileUpdate(Request $request)
+    {
+        $id=Auth::id();
+        $data = $request->input();
+        dd($request);
+        if(($request['image']) !=null){//画像データがあるとき
+            $file_name = $request->file('image')->getClientOriginalName();
+            User::where('id', $id)->update([
+            $request->file('image')->storeAs('public',$file_name)
+            ]);
+        } else {
+
+        }
+
         //バリデーション処理
         $request->validate([
-            'name'=> 'required|string|max:255',
+            'username'=> 'required|string|max:255',
             'mail'=> 'required|string|email|max:255|unique:users',
             'password'=> 'required|string|min:4|confirmed',
             'bio'=> 'required|string|max:150',
-            'image'=> 'image|mimes:jpg,png,gif',
+            'images'=> 'image|mimes:jpg,png,gif',
         ]);
 
-        $id=Auth::id();
-        $username=$request->input('username');
-        $mail=$request->input('mail');
-        $password=$request->input('password');
-        $bio=$request->input('bio');
-        $image=$request->file('iconImage')->getClientOriginalName();
+        $this->update($data);//更新する
 
-
-        if($image !=null){//画像データがあるとき
-            $image->store('public/images');
-            \DB::table('users')
-               ->where('id',$id)
-               ->update([
-                'images'=>basename($image),
-               ]);
-        }
-
-        return view('users.profile',);
+        return redirect('/top');
     }
-// 'username'=>$username,
-// 'mail'=>$mail,
-// 'password'=>bcrypt($request['password']),
-//  'bio'=>$bio,
+
+
 
     public function search(Request $request)
     {
