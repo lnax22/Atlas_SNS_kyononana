@@ -101,6 +101,18 @@ header{
     margin: 1.875em auto;
 }
 
+/* アイコン表示 */
+div.image_circle {
+    height: 100px;
+    border-radius: 50%;
+    background-image: url("image.jpg");
+    background-position: 54% 36%;
+}
+
+p.icon img {
+    width: 50px;
+    display: flex;
+}
 
 /* 投稿編集のモーダルの中身 */
 .content {

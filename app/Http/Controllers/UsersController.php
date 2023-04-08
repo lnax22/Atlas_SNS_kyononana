@@ -25,8 +25,17 @@ class UsersController extends Controller
     }
 
     //プロフィール更新
-    protected function update(array $data)
+    protected function edit(array $data)
     {
+        // $validator = validator::make($request->all(),[
+        //     'username'=> 'required|string|min:2,max:12',
+        //     'mail'=> 'required|string|email:rfc,dns|min:5|max:40|unique:users',
+        //     'password'=> 'required|string|min:8|max:20|confirmed',
+        //     'bio'=> 'string|max:150',
+        //     'images'=> 'file|mines:jpg,png,bmp,gif,svg'
+        // ]);
+
+
         $id=Auth::id();
         return User::where('id', $id)->update([
             'username'=> $data['username'],
@@ -40,26 +49,18 @@ class UsersController extends Controller
     {
         $id=Auth::id();
         $data = $request->input();
-        dd($request);
-        if(($request['image']) !=null){//画像データがあるとき
-            $file_name = $request->file('image')->getClientOriginalName();
-            User::where('id', $id)->update([
-            $request->file('image')->storeAs('public',$file_name)
-            ]);
+        $image= $request->file('image');
+        // dd($image);
+        if($image !=null){//画像データがあるとき
+            $file_name = $image->getClientOriginalName();//画像のnameだけを保存
+            $image->storeAs('public',$file_name);//画像を保存、$imageに格納
+            User::where('id', $id)->update(['images'=> $file_name]);
         } else {
 
         }
 
-        //バリデーション処理
-        $request->validate([
-            'username'=> 'required|string|max:255',
-            'mail'=> 'required|string|email|max:255|unique:users',
-            'password'=> 'required|string|min:4|confirmed',
-            'bio'=> 'required|string|max:150',
-            'images'=> 'image|mimes:jpg,png,gif',
-        ]);
 
-        $this->update($data);//更新する
+        $this->edit($data);//更新する
 
         return redirect('/top');
     }

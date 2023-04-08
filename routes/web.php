@@ -48,7 +48,7 @@ Route::post('/profile','UsersController@profile');
 Route::get('/profile','UsersController@profile');
 
 //プロフィール更新
-Route::post('/profile','UsersController@profileUpdate');
+Route::post('/profile/update','UsersController@profileUpdate');
 
 // 検索
 Route::get('/search','UsersController@search');
