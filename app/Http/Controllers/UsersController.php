@@ -19,7 +19,7 @@ class UsersController extends Controller
     //プロフィール編集表示
     public function profile(Request $request)
     {
-        $user=Auth::user();
+        $user=Auth::id();
 
         return view('users.profile',['user'=> $user]);
     }
@@ -63,6 +63,15 @@ class UsersController extends Controller
         $this->edit($data);//更新する
 
         return redirect('/top');
+    }
+
+    //他ユーザーのプロフィール
+    public function otherProfile($id)
+    {
+        $user = User::where('id', $id)->first();
+        //値が複数存在して、foreachを使って表示させる場合は、getやall。データが一つだけで、そのままbladeに「->カラム名」で表示させる場合は、first
+
+        return view('users.otherProfile',['user'=> $user]);
     }
 
 

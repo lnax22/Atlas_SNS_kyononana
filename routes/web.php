@@ -47,6 +47,9 @@ Route::get('/top','PostsController@index');
 Route::post('/profile','UsersController@profile');
 Route::get('/profile','UsersController@profile');
 
+//他ユーザーのプロフィール表示
+Route::get('/profile/{id}/other','UsersController@otherProfile');
+
 //プロフィール更新
 Route::post('/profile/update','UsersController@profileUpdate');
 
