@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Post;
 use Validator;
 
 
@@ -69,9 +70,10 @@ class UsersController extends Controller
     public function otherProfile($id)
     {
         $user = User::where('id', $id)->first();
-        //値が複数存在して、foreachを使って表示させる場合は、getやall。データが一つだけで、そのままbladeに「->カラム名」で表示させる場合は、first
+        $posts = Post::with("user")->where('user_id', $id)->get();
+        //値が複数存在して、foreachを使って表示させる場合は、getやall。データが一つだけで、そのままbladeに「->カラム名」で表示させる場合はfirstを使う
 
-        return view('users.otherProfile',['user'=> $user]);
+        return view('users.otherProfile',['user'=> $user,'posts'=>$posts]);
     }
 
 

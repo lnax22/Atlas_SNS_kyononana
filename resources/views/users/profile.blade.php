@@ -8,7 +8,7 @@
   <!-- バリデーション -->
 
 <div class="profile-container">
-   <figure><img width="32" src="{{asset('storage/'. $user->images)}}"></figure>
+   <figure><img width="32" src="{{asset('storage/'. $user->image)}}"></figure>
     <div class="form-update">
       <div class="profile-wrapper">
         user name<input type="text" value="{{ $user->username }}" class="input" name="username">
