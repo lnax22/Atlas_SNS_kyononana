@@ -23,7 +23,7 @@
 <body>
     <header>
     <!-- <img src="表示する画像のパス(場所)" alt="表示画像の説明文言"> -->
-     <a href="/top"><img src="images/atlas.png" width="100" height="40"></a>
+     <a href="/top"><img src="{{ asset('images/atlas.png')}}" width="100" height="40"></a>
       <div id="accordion" class="accordion-container">
         <h4 class="accordion-title js-accordion-title">
          <div class="image_circle"><img src="{{asset('storage/'. Auth::user()->images)}}" img width="60" >{{ Auth::user()->username }}さん</div></h4>
@@ -61,6 +61,6 @@
     </footer>
     <!-- <script src="{{ asset('js/app.js') }}"></script> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="{{ asset('js/script.js')}}"></script>
 </body>
 </html>

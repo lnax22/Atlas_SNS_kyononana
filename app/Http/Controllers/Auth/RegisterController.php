@@ -49,9 +49,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|string|max:255',
-            'mail' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:4|confirmed',
+            'username' => 'required|string|min:2,max:12',
+            'mail' => 'required|string|email:rfc,dns|min:5|max:40|unique:users',
+            'password' => 'required|string|min:8|max:20|confirmed',
         ]);
     }
 
@@ -79,7 +79,14 @@ class RegisterController extends Controller
     public function register(Request $request){
         if($request->isMethod('post')){
             $data = $request->input();
-            // dd($data);確認できる
+            $errors = $this->validator($data);
+            // バリデーション
+            // if($validator->fails()){
+            //     return redirect('/register')
+            //                ->withInput()
+            //                ->withErrors($errors);
+
+            // }
 
             $this->create($data);
             // セッションの記述

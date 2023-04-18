@@ -1,7 +1,6 @@
 @extends('layouts.logout')
 
 @section('content')
-
 <div id="clear">
   <p>{{session('name')}}さん</p>
   <p>ようこそ!AtlasSNSへ!</p>

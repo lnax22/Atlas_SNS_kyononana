@@ -20,7 +20,7 @@ class UsersController extends Controller
     //プロフィール編集表示
     public function profile(Request $request)
     {
-        $user=Auth::id();
+        $user=Auth::user();
 
         return view('users.profile',['user'=> $user]);
     }
@@ -28,15 +28,6 @@ class UsersController extends Controller
     //プロフィール更新
     protected function edit(array $data)
     {
-        // $validator = validator::make($request->all(),[
-        //     'username'=> 'required|string|min:2,max:12',
-        //     'mail'=> 'required|string|email:rfc,dns|min:5|max:40|unique:users',
-        //     'password'=> 'required|string|min:8|max:20|confirmed',
-        //     'bio'=> 'string|max:150',
-        //     'images'=> 'file|mines:jpg,png,bmp,gif,svg'
-        // ]);
-
-
         $id=Auth::id();
         return User::where('id', $id)->update([
             'username'=> $data['username'],
@@ -48,9 +39,25 @@ class UsersController extends Controller
 
     public function profileUpdate(Request $request)
     {
+
         $id=Auth::id();
         $data = $request->input();
         $image= $request->file('image');
+        $request->validate ([
+            'username'=> 'required|string|min:2,max:12',
+            'mail'=> 'required|string|email:rfc,dns|min:5|max:40|unique:users',
+            'password'=> 'required|string|min:8|max:20|confirmed',
+            'bio'=> 'string|max:150',
+            'images'=> 'file|mines:jpg,png,bmp,gif,svg',
+        ]);
+        if($image !=null){
+            if($validator->fails()){
+                return redirect('/profile/update')
+                           ->withErrors($validator)
+                           ->withInput();
+            }
+        }
+
         // dd($image);
         if($image !=null){//画像データがあるとき
             $file_name = $image->getClientOriginalName();//画像のnameだけを保存

@@ -2,13 +2,21 @@
 @extends('layouts.login')
 
 @section('content')
-
-<form action="/profile/update" method="POST" enctype="multipart/form-data">
-  @csrf
-  <!-- バリデーション -->
+<!-- バリデーション エラーメッセージ-->
+@if ($errors->any())
+<div class="alert alert-danger">
+  <ul>
+    @foreach($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
 
 <div class="profile-container">
-   <figure><img width="32" src="{{asset('storage/images'.Auth::user()->images)}}"></figure>
+<form action="/profile/update" method="POST" enctype="multipart/form-data">
+  @csrf
+   <figure><img width="32" src="{{asset('storage/'.Auth::user()->images)}}"></figure>
     <div class="form-update">
       <div class="profile-wrapper">
         user name<input type="text" value="{{ $user->username }}" class="input" name="username">
@@ -32,8 +40,9 @@
 
    <button type="submit" class="btn btn-primary btn-Update">更新</button>
 
-</div>
 </form>
+</div>
+
 
 
 
