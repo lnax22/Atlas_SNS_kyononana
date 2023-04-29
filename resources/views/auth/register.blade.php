@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- バリデーション エラーメッセージ-->
-<!-- @if ($errors->any())
+@if ($errors->any())
 <div class="alert alert-danger">
   <ul>
     @foreach($errors->all() as $error)
@@ -10,7 +10,7 @@
     @endforeach
   </ul>
 </div>
-@endif -->
+@endif
 
 {!! Form::open(['url' => '/register']) !!}
 
@@ -19,14 +19,14 @@
 {{ Form::label('username') }}
 {{ Form::text('username',null,['class' => 'input']) }}
 
-{{ Form::label('mailaddress') }}
+{{ Form::label('mailAddress') }}
 {{ Form::text('mail',null,['class' => 'input']) }}
 
 {{ Form::label('password') }}
 {{ Form::text('password',null,['class' => 'input']) }}
 
 {{ Form::label('password confirm') }}
-{{ Form::text('password-confirm',null,['class' => 'input']) }}
+{{ Form::text('password_confirmation',null,['class' => 'input']) }}
 
 {{ Form::submit('登録') }}
 

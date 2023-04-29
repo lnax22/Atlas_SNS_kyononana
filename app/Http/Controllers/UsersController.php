@@ -43,19 +43,22 @@ class UsersController extends Controller
         $id=Auth::id();
         $data = $request->input();
         $image= $request->file('image');
-        $request->validate ([
+        $validator
+        $this->validate($request,[
             'username'=> 'required|string|min:2,max:12',
             'mail'=> 'required|string|email:rfc,dns|min:5|max:40|unique:users',
             'password'=> 'required|string|min:8|max:20|confirmed',
             'bio'=> 'string|max:150',
             'images'=> 'file|mines:jpg,png,bmp,gif,svg',
         ]);
+
         if($image !=null){
             if($validator->fails()){
                 return redirect('/profile/update')
                            ->withErrors($validator)
                            ->withInput();
             }
+
         }
 
         // dd($image);

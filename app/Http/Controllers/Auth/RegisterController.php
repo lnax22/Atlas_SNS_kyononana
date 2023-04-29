@@ -46,22 +46,14 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'username' => 'required|string|min:2,max:12',
-            'mail' => 'required|string|email:rfc,dns|min:5|max:40|unique:users',
-            'password' => 'required|string|min:8|max:20|confirmed',
-        ]);
-    }
-
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+
+     protected function create(array $data)
     {
         return User::create([
             'username' => $data['username'],
@@ -69,7 +61,6 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
-
 
     // public function registerForm(){
     //     return view("auth.register");
@@ -79,24 +70,28 @@ class RegisterController extends Controller
     public function register(Request $request){
         if($request->isMethod('post')){
             $data = $request->input();
-            $errors = $this->validator($data);
-            // バリデーション
-            // if($validator->fails()){
-            //     return redirect('/register')
-            //                ->withInput()
-            //                ->withErrors($errors);
+            $rules = [
+                'username' => 'required|string|min:2,max:12',
+                'mail' => 'required|string|email:rfc,dns|min:5|max:40|unique:users',
+                'password' => 'required|string|min:8|max:20|confirmed',
+            ];
 
-            // }
+            $validator = Validator::make($data,$rules);
+            if($validator->fails()){
+                 return redirect('/register')
+                    ->withErrors($validator)// Validatorインスタンスの値を$errorsへ保存
+                    ->withInput();// 送信されたフォームの値をInput::old()へ引き継ぐ
+            }
 
             $this->create($data);
+            return redirect('added');
             // セッションの記述
             $request->session()->put('name',$data['username']);
-            return redirect('added');
         }
         return view('auth.register');
     }
 
-    public function added(){
+    public function added(Request $request){
         return view('auth.added');
     }
 }

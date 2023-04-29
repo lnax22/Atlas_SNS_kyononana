@@ -44,13 +44,14 @@ Route::post('/added', 'Auth\RegisterController@added');
 Route::get('/top','PostsController@index');
 
 // プロフィール編集
-Route::post('/profile','UsersController@profile');
 Route::get('/profile','UsersController@profile');
+Route::post('/profile','UsersController@profile');
 
 //他ユーザーのプロフィール表示
 Route::get('/profile/{id}/other','UsersController@otherProfile');
 
 //プロフィール更新
+Route::get('/profile/update','UsersController@profileUpdate');
 Route::post('/profile/update','UsersController@profileUpdate');
 
 // 検索

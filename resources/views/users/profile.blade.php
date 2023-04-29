@@ -28,7 +28,7 @@
         password<input type="password" class="input" name="password">
       </div>
       <div class="profile-wrapper">
-        password confirm<input type="password" class="input" name="password_confirm">
+        password confirm<input type="password" class="input" name="password_confirmation">
       </div>
       <!-- <span class="text-danger">{{ $errors->first('password_confirmation')}}</span> -->
       <div class="profile-wrapper">
