@@ -4,7 +4,42 @@ html{
     height: 100%;
 }
 
+header{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 190px;
+}
+
+p,label,a{
+    color: #fff;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+}
+
+label{
+    margin-top: 20px
+}
+
+a{
+    margin-top: 40px
+}
+
+input [type="input"] {
+    text-align: center;
+}
+
+input[type="submit"]{
+    background:#FF4F50;
+    color: #fff;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+
 body{
     height: 100%;
-    background: #186AC9;
+    background: linear-gradient(-20deg, #ffcc33 0%, #0066ff 100%);
 }

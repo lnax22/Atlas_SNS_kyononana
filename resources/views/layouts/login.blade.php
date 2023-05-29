@@ -20,13 +20,15 @@
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
 </head>
+
 <body>
     <header>
     <!-- <img src="表示する画像のパス(場所)" alt="表示画像の説明文言"> -->
-     <a href="/top"><img src="{{ asset('images/atlas.png')}}" width="100" height="40"></a>
+     <a href="/top"><img src ="{{ asset('images/atlas.png')}}" width="100" height="40"></a>
       <div id="accordion" class="accordion-container">
         <h4 class="accordion-title js-accordion-title">
-         <div class="image_circle"><img src="{{asset('storage/'. Auth::user()->images)}}" img width="60" >{{ Auth::user()->username }}さん</div></h4>
+         <p class="image_circle">{{ Auth::user()->username }}さん<img src="{{asset('storage/'. Auth::user()->images)}}" class="icon" width="60" height="60"></p>
+        </h4>
         <ul class="accordion-content">
           <li><a href="/top">HOME</a></li>
           <li><a href="/profile">プロフィール編集</a></li>
@@ -46,14 +48,14 @@
                 <div>
                 <p>フォロー数 {{ Auth::user()->follows()->get()->count() }}名</p>
                 </div>
-                <button><a class="btn" href="/followList">フォローリスト</a></button>
+                <button><a href="/followList" class="button">フォローリスト</a></button>
                 <div>
                 <p>フォロワー数 {{ Auth::user()->followed()->get()->count() }}名</p>
                 </div>
-                <button><a class="btn" href="/followerList">フォロワーリスト</a></button>
+                <button><a href="/followerList" class="button">フォロワーリスト</a></button>
             </div>
             <p class="btn">
-             <button type=""><a href="/search">ユーザー検索</button>
+             <button><a href="/search" class="button">ユーザー検索</a></button>
             </p>
         </div>
     </div>

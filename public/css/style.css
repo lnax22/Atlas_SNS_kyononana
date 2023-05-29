@@ -3,10 +3,6 @@ html{
 }
 /* ログイン画面 */
 
-
-
-
-
 body{
     width: 100%;
     padding: none;
@@ -16,6 +12,7 @@ body{
 /* header */
 header{
     background:#186AC9;
+    height:100px
 }
 
 /* main content */
@@ -31,9 +28,43 @@ header{
     border-left: 1px solid #727272;
 }
 
+button{
+    background: #186AC9;
+}
+
+a.button{
+    color: #fff;
+}
+
+a.unFollow{
+    color: #fff;
+}
+
+.edit{
+    background: #fff
+}
+
+.flex{
+    display: flex;
+}
+
+/* 区切りの線 */
+hr{
+    border-width: 5px 0px 0px 0px; /* 太さ */
+    border-style: solid; /*線種 */
+    border-color: #DDD;
+    height: 1px;
+}
+
+p.btn{
+    border-top:1px solid gray;
+    margin-top: 30px;
+}
+
 /* アコーディオンメニュー */
 .accordion-container {
     position: relative;
+    margin: 0 0 0 auto;
     width: 100%;
     border: 1px solid #0079c1;
     border-top: none;
@@ -42,10 +73,8 @@ header{
 }
 
 .accordion-container .accordion-title {
-    display:block;
     position: relative;
     margin: 0 0 0 auto;
-    padding: 0.625em 0.625em 0.625em 2em;
     font-size: 1.25em;
     font-weight: normal;
     color: #fff;
@@ -62,7 +91,7 @@ header{
 .accordion-container .accordion-title:hover i:before,
 .accordion-container .accordion-title:hover i:active,
 .accordion-container .content-entry.open i {
-    color: white;
+    color: #000080;
 }
 
 .accordion-title {
@@ -77,7 +106,7 @@ header{
     transition: all 0.2s ease-in-out;
     display: block;
     width: 8px;
-    height: 8px;
+    height: 5px;
     border-top: solid 2px #fff;
     border-right: solid 2px #fff;
     -webkit-transform: rotate(135deg);
@@ -93,26 +122,27 @@ header{
 .accordion-content {
     display: none;
     padding-left: 2.3125em;
-    background-color: #FFFFFF;
+    background-color: #fff;
 }
 
 .accordion-container {
     width: 300px;
-    margin: 1.875em auto;
+    margin: 0 0 0 auto;
+    height: 40px
 }
 
 /* アイコン表示 */
 div.image_circle {
-    height: 100px;
-    border-radius: 50%;
+    height: 45px;
     background-image: url("image.jpg");
     background-position: 54% 36%;
+    color: #fff;
 }
 
-p.icon img {
-    width: 50px;
-    display: flex;
+.icon {
+    border-radius: 50%;
 }
+
 
 /* 投稿編集のモーダルの中身 */
 .content {
@@ -172,4 +202,18 @@ p.icon img {
 
 .bottom_space {
     margin-bottom: 2.5em;
+}
+
+/* 投稿送信ボタン */
+
+
+/* ユーザー検索 */
+.btn_danger{
+   color: #F00;
+}
+
+/* プロフィール編集 */
+.profile-wrapper{
+    position: relative;
+    margin-top: 20px;
 }

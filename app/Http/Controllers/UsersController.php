@@ -43,23 +43,22 @@ class UsersController extends Controller
         $id=Auth::id();
         $data = $request->input();
         $image= $request->file('image');
-        $validator
-        $this->validate($request,[
+        $validator=$this->validate($request,[
             'username'=> 'required|string|min:2,max:12',
-            'mail'=> 'required|string|email:rfc,dns|min:5|max:40|unique:users',
+            'mail'=> 'required|string|email:rfc,dns|min:5|max:40|unique:users,mail,'.Auth::user()->mail.',mail',
             'password'=> 'required|string|min:8|max:20|confirmed',
             'bio'=> 'string|max:150',
             'images'=> 'file|mines:jpg,png,bmp,gif,svg',
         ]);
 
-        if($image !=null){
-            if($validator->fails()){
-                return redirect('/profile/update')
-                           ->withErrors($validator)
-                           ->withInput();
-            }
+        // if($image !=null){
+        //     if($validator->fails()){
+        //         return redirect('/profile/update')
+        //                    ->withErrors($validator)
+        //                    ->withInput();
+        //     }
 
-        }
+        // }
 
         // dd($image);
         if($image !=null){//画像データがあるとき

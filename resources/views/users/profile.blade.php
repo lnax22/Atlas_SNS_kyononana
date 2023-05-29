@@ -16,13 +16,13 @@
 <div class="profile-container">
 <form action="/profile/update" method="POST" enctype="multipart/form-data">
   @csrf
-   <figure><img width="32" src="{{asset('storage/'.Auth::user()->images)}}"></figure>
+   <figure><img width="35" height="35" class="icon" src="{{asset('storage/'.Auth::user()->images)}}"></figure>
     <div class="form-update">
       <div class="profile-wrapper">
         user name<input type="text" value="{{ $user->username }}" class="input" name="username">
       </div>
       <div class="profile-wrapper">
-        mail adress<input type="text" value="{{ $user->mail }}" class="input" name="mail">
+        mail address<input type="text" value="{{ $user->mail }}" class="input" name="mail">
       </div>
       <div class="profile-wrapper">
         password<input type="password" class="input" name="password">
@@ -34,11 +34,13 @@
       <div class="profile-wrapper">
         bio<input type="bio" value="{{ $user->bio }}" name="bio">
       </div>
-      <label class="form-group mb-3">icon image</label>
+      <br>
+      <label class="form-group">icon image</label>
       <input type="file" name="image" class="custom-file-input" id="image">
    </div>
+   <br>
 
-   <button type="submit" class="btn btn-primary btn-Update">更新</button>
+   <button type="submit" class="update">更新</button>
 
 </form>
 </div>
