@@ -14,9 +14,9 @@
  @if(Auth()->user()->isFollowing($user->id))
 <!-- if文は一個 -->
 <a href="/profile/{{$user->id}}/other"><img src="{{asset('storage/' .$user->images)}}" class="icon" width="35" height="35"></a>
- {{$user->username}}<button><a href="/users/{{$user->id}}/unFollow" class="unFollow">フォロー解除</button><br>
+ {{$user->username}}<button class="unFollowBtn"><a href="/users/{{$user->id}}/unFollow">フォロー解除</a></button><br>
  @else
- {{$user->username}}<button><a href="/users/{{$user->id}}/Follow" class="button">フォローする</a></button><br>
+ {{$user->username}}<button class="followBtn"><a href="/users/{{$user->id}}/Follow">フォローする</a></button><br>
  @endif
 
 @endforeach

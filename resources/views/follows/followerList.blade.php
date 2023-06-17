@@ -2,9 +2,10 @@
 
 @section('content')
 <h1>Follower List</h1>
+  <div class="flex">
     @foreach ($posts as $post)
-    <a href="/profile/{{$post->user->id}}/other"><p class="icon"><img src="{{asset('storage/' .$post->user->images)}}"></p></a>
-    <p>名前：{{ $post->user->username}}</p>
-    <p>投稿内容：{{ $post->post }}</p>
+    <a href="/profile/{{$post->user->id}}/other"><img src="{{asset('storage/' .$post->user->images)}}"class="icon" width="35" height="35"></a>
+    <p>{{$post->user->username}} <br> {{ $post->post }}</p>
     @endforeach
+  </div>
 @endsection

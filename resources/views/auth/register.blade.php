@@ -14,6 +14,7 @@
 
 {!! Form::open(['url' => '/register']) !!}
 
+<div class="register">
 <h2>新規ユーザー登録</h2>
 
 {{ Form::label('username') }}
@@ -28,9 +29,10 @@
 {{ Form::label('password confirm') }}
 {{ Form::text('password_confirmation',null,['class' => 'input']) }}
 
-{{ Form::submit('登録') }}
+{{ Form::submit('REGISTER') }}
 
 <p><a href="/login">ログイン画面へ戻る</a></p>
+</div>
 
 {!! Form::close() !!}
 

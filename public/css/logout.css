@@ -7,43 +7,121 @@ html{
 header{
     text-align: center;
     font-size: 20px;
-    margin-top: 190px;
+    margin-top: 110px;
+}
+
+#container {
+    text-align: center;
+}
+
+h2{
+    color: #fff;
+    margin-top: 35px;
 }
 
 p,label,a{
     color: #fff;
-    text-align: center;
     flex-direction: column;
     align-items: center;
     display: flex;
 }
 
+.open{
+    background: rgba(34,34,34,0.25);
+    width: 200px;
+    height: 220px;
+    background-size: 250px auto;
+    padding: 50px auto;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.register{
+    background: rgba(34, 34, 34, 0.25);
+    width: 200px;
+    height: 330px;
+    background-size: 250px auto;
+    padding: 40px auto;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.clear{
+    background: rgba(34, 34, 34, 0.25);
+    width: 230px;
+    height: 170px;
+    background-size: 250px auto;
+    padding: 40px auto;
+    margin: 0 auto;
+    margin-top: 35px;
+    border-radius: 10px;
+}
+
+.submit{
+    background: #FF4F50;
+    color: #fff;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 30px;
+    flex-direction: column;
+    float: right;
+    border-radius: 4px;
+    padding: 7px;
+}
+
+.added1{
+    font-size: 15px;
+}
+
+.added2{
+    font-size: 13px;
+    margin-top:25px;
+}
+
+.added3{
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.title{
+    margin-top: 60px;
+    font-size: 15px;
+}
+
 label{
-    margin-top: 20px
+    margin-top: 20px;
+    margin-left: 24px;
+    font-size: 13px;
+    float: left;
 }
 
 a{
-    margin-top: 40px
+    margin-top: 65px;
+    margin-left: 87px;
+    font-size: 13px;
+    white-space: nowrap;
 }
 
 input [type="input"] {
     text-align: center;
+    border-radius: 10px;
+    flex-direction: column;
 }
 
 input[type="submit"]{
     background:#FF4F50;
     color: #fff;
     display: flex;
-    text-align: center;
+    margin: 0 auto;
+    margin-top: 7px;
+    margin-right: 25px;
     flex-direction: column;
-    align-items: center;
+    float: right;
+    border-radius: 4px;
+    padding: 6px;
 }
 
 body{
     height: 100%;
-    background: linear-gradient(-20deg, #ffcc33 0%, #0066ff 100%);
-}
-
-#loginPage{
-    margin: 0 auto;
+    background: linear-gradient(-20deg, #ffcc33 15%, #0066ff 75%);
 }

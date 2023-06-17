@@ -12,7 +12,7 @@ body{
 /* header */
 header{
     background:#186AC9;
-    height:100px
+    height:65px
 }
 
 /* main content */
@@ -20,29 +20,66 @@ header{
     display: flex;
     flex-flow: row wrap;
 }
+
 #container{
     flex: 0 0 80%;
 }
+
 #side-bar{
     flex: 0 0 19%;
     border-left: 1px solid #727272;
 }
 
-button{
+.post{
+    border-bottom: 1px solid 40px #727272;
+}
+
+.post_date{
+    font-size: 11px;
+}
+
+.postBtn{
+    float: right;
+    background-color: #186AC9;
+    margin-right: 135px;
+
+}
+
+.editBtn,.trashBtn{
+    float: right;
+    background-color: #fff;
+    margin-right:  25px;
+}
+
+.editBtn{
+    margin-right: 35px;
+}
+
+.followerCount{
+    white-space: nowrap;
+    margin-top: 50px;
+}
+
+.followCount{
+    margin-top: 13px;
+}
+
+.followListBtn,.followerListBtn{
     background: #186AC9;
+    border-radius: 4px;
+    float: right;
+    margin-top: 7px;
+    padding: 3px 3px;
 }
 
-a.button{
-    color: #fff;
-}
-
-a.unFollow{
-    color: #fff;
+.followerListBtn{
+    border-top: 1px solid #ccc;
 }
 
 .edit{
     background: #fff
 }
+
 
 .flex{
     display: flex;
@@ -54,12 +91,10 @@ hr{
     border-style: solid; /*線種 */
     border-color: #DDD;
     height: 1px;
+    margin-top: 40px;
 }
 
-p.btn{
-    border-top:1px solid gray;
-    margin-top: 30px;
-}
+
 
 /* アコーディオンメニュー */
 .accordion-container {
@@ -106,7 +141,7 @@ p.btn{
     transition: all 0.2s ease-in-out;
     display: block;
     width: 8px;
-    height: 5px;
+    height: 10px;
     border-top: solid 2px #fff;
     border-right: solid 2px #fff;
     -webkit-transform: rotate(135deg);
@@ -123,17 +158,35 @@ p.btn{
     display: none;
     padding-left: 2.3125em;
     background-color: #fff;
+    font-size: 20px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.accordion-content:hover{
+    background-color: #000080;
+}
+
+/* アコーディオンメニューの文字の色 */
+.accordion-menu{
+    color: #999;
+}
+
+.accordion-menu:hover{
+    color: #fff;
 }
 
 .accordion-container {
-    width: 300px;
+    width: 250px;
+    height: 60px;
+    bottom: 38px;
     margin: 0 0 0 auto;
-    height: 40px
 }
 
 /* アイコン表示 */
-div.image_circle {
-    height: 45px;
+#image_circle {
     background-image: url("image.jpg");
     background-position: 54% 36%;
     color: #fff;
@@ -208,12 +261,62 @@ div.image_circle {
 
 
 /* ユーザー検索 */
-.btn_danger{
-   color: #F00;
+.unFollowBtn{
+   background: #F00;
+   border-radius: 4px;
+   padding: 3px 3px;
 }
 
+.followBtn,.userSearchBtn {
+    background: #186AC9;
+    border-radius: 4px;
+    padding: 3px 3px;
+}
+
+.userSearchBtn {
+    margin-top: 20px;
+    margin-left: 50px;
+    border-top: 1px solid gray;
+}
+
+a{
+    color: #fff;
+}
 /* プロフィール編集 */
 .profile-wrapper{
     position: relative;
     margin-top: 20px;
+    text-indent: -0.5em;
+    padding-left: 0.5em;
+}
+
+.form-update{
+    text-indent: -0.5em;
+    padding-left: 0.5em;
+}
+
+input[type="text"]{
+}
+
+.profile-container{
+    text-align: center;
+}
+
+.profileIcon{
+    border-radius: 50%;
+    text-align: right;
+    margin-right: 400px;
+
+}
+
+.update{
+    background: #FF4F50;
+    color: #fff;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 7px;
+    text-align: center;
+    flex-direction: column;
+    border-radius: 4px;
+    padding: 4px 35px;
 }

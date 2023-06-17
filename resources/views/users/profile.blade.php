@@ -16,7 +16,7 @@
 <div class="profile-container">
 <form action="/profile/update" method="POST" enctype="multipart/form-data">
   @csrf
-   <figure><img width="35" height="35" class="icon" src="{{asset('storage/'.Auth::user()->images)}}"></figure>
+   <figure><img width="35" height="35" class="profileIcon" src="{{asset('storage/'.Auth::user()->images)}}"></figure>
     <div class="form-update">
       <div class="profile-wrapper">
         user name<input type="text" value="{{ $user->username }}" class="input" name="username">

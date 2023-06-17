@@ -26,7 +26,7 @@ empty関数は変数が存在しない、または空であればtrueを返す�
    <img src="{{asset('storage/'. Auth::user()->images)}}" class="icon" width="35" height="35">
    <input type="text" name="newPost" class="form-control" placeholder="投稿内容を入力してください">
 	 </div>
-	 <button><img src="{{ asset('images/post.png')}}" class="post" width="40" height="40"></button>
+	 <button class="postBtn"><img src="{{ asset('images/post.png')}}" width="35" height="35"></button>
 </form>
 
 <!-- 区切りの線 -->
@@ -36,14 +36,16 @@ empty関数は変数が存在しない、または空であればtrueを返す�
    <!-- $postsはPostモデル経由で取得している情報になるのでPostモデルに定義されているusersテーブルとのリレーションを定義しているuserメソッドにアクセスしuserの情報を取得している流れになります。 -->
     <div class="flex">
        <p><img src="{{asset('storage/' .$posts->user->images)}}" class="icon" width="35" height="35"></p>
-       <p>{{$posts->user->username}} <br> {{ $posts->post }}</p>
+       <p class="post">{{$posts->user->username}} <br> {{$posts->post}}</p>
+       <p class="post_date">{{$posts->created_at}}</p>
       <!-- userはメゾット名（User.phpからデータを取ってきている） -->
     </div>
 
-    <!-- @if(Auth::user() == posts->user_id) -->
-     <button><a class="js-modal-open" post="{{ $posts->post }}"  post_id="{{ $posts->id }}"><img src="{{ asset('images/edit.png')}}" class="edit" width="25" height="25"></a></button>
-		 <button><a href="/posts/{{$posts->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><img src="{{ asset('images/trash.png')}}" class="trash" width="25" height="25"></a></button>
-    <!-- @endif -->
+    @if(Auth::user()->id == $posts->user_id)
+     <button class="editBtn"><a class="js-modal-open" post="{{ $posts->post }}"  post_id="{{ $posts->id }}"><img src="{{ asset('images/edit.png')}}" width="25" height="25"></a></button>
+		 <button class="trashBtn"><a href="/posts/{{$posts->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><img src="{{ asset('images/trash.png')}}" onmouseover="this.src='{{ asset('images/trash-h.png')}}'" onmouseout="this.src='{{ asset('images/trash.png')}}'"width="25" height="25"></a></button>
+    @endif
+
   @endforeach
 
 	<!-- 投稿編集のモーダルの中身 -->

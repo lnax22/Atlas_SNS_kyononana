@@ -27,12 +27,12 @@
      <a href="/top"><img src ="{{ asset('images/atlas.png')}}" width="100" height="40"></a>
       <div id="accordion" class="accordion-container">
         <h4 class="accordion-title js-accordion-title">
-         <p class="image_circle">{{ Auth::user()->username }}さん<img src="{{asset('storage/'. Auth::user()->images)}}" class="icon" width="60" height="60"></p>
+         <p class="image_circle">{{ Auth::user()->username }}さん<img src="{{asset('storage/'. Auth::user()->images)}}" class="icon" width="45" height="45"></p>
         </h4>
         <ul class="accordion-content">
-          <li><a href="/top">HOME</a></li>
-          <li><a href="/profile">プロフィール編集</a></li>
-          <li><a href="/logout">ログアウト</a></li>
+          <li><a class=accordion-menu href="/top">HOME</a></li>
+          <li><a class=accordion-menu href="/profile">プロフィール編集</a></li>
+          <li><a class=accordion-menu href="/logout">ログアウト</a></li>
       <!-- aタグを使用することで、リンク先を指定することができます。liタグ内に記述したaタグの「href属性」に、それぞれのアンカーリンク同一ページ内のリンク先を設定します。なお、同一ページ内のリンクは、「id属性」で指定された場所まで「href=”#○○”」と記述することで移動ができます。 -->
         </ul>
       </div>
@@ -46,17 +46,15 @@
             <div id="confirm">
                 <p>{{ Auth::user()->username }}さんの</p>
                 <div>
-                <p>フォロー数 {{ Auth::user()->follows()->get()->count() }}名</p>
+                <p class="followCount">フォロー数 {{ Auth::user()->follows()->get()->count() }}名</p>
                 </div>
-                <button><a href="/followList" class="button">フォローリスト</a></button>
+                <button class="followListBtn"><a href="/followList">フォローリスト</a></button>
                 <div>
-                <p>フォロワー数 {{ Auth::user()->followed()->get()->count() }}名</p>
+                <p class="followerCount">フォロワー数 {{ Auth::user()->followed()->get()->count() }}名</p>
                 </div>
-                <button><a href="/followerList" class="button">フォロワーリスト</a></button>
+                <button class="followerListBtn"><a href="/followerList">フォロワーリスト</a></button>
             </div>
-            <p class="btn">
-             <button><a href="/search" class="button">ユーザー検索</a></button>
-            </p>
+             <button class="userSearchBtn"><a href="/search">ユーザー検索</a></button>
         </div>
     </div>
     <footer>
