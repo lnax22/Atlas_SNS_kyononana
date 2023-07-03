@@ -24,7 +24,7 @@ empty関数は変数が存在しない、または空であればtrueを返す�
 	 <!-- {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください']) !!} -->
 	 <!-- Form::input('type属性','name属性','フォーム内に初めから入れる値の指定',[その他属性をまとめて指定]) -->
    <img src="{{asset('storage/'. Auth::user()->images)}}" class="icon" width="35" height="35">
-   <input type="text" name="newPost" class="form-control" placeholder="投稿内容を入力してください">
+   <input type="text" style="border:none" name="newPost" class="form-control" placeholder="投稿内容を入力してください">
 	 </div>
 	 <button class="postBtn"><img src="{{ asset('images/post.png')}}" width="35" height="35"></button>
 </form>

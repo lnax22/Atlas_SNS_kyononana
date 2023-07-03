@@ -30,18 +30,24 @@ header{
     border-left: 1px solid #727272;
 }
 
+input.form-control{
+    border: none;
+}
+
 .post{
     border-bottom: 1px solid 40px #727272;
 }
 
 .post_date{
     font-size: 11px;
+    float: right;
 }
 
 .postBtn{
     float: right;
     background-color: #186AC9;
-    margin-right: 135px;
+    margin-right: 120px;
+    margin-top: -40px;
 
 }
 
@@ -267,16 +273,27 @@ hr{
    padding: 3px 3px;
 }
 
-.followBtn,.userSearchBtn {
-    background: #186AC9;
+.followBtn{
+    background:#00bfff;
     border-radius: 4px;
     padding: 3px 3px;
 }
 
+
 .userSearchBtn {
+    background: #186AC9;
     margin-top: 20px;
     margin-left: 50px;
     border-top: 1px solid gray;
+    border-radius: 4px;
+    padding: 3px 3px;
+}
+
+.userSearchList{
+    text-align: center;
+    margin-top: 20px;
+    text-indent: -0.5em;
+    padding-left: 0.5em;
 }
 
 a{
@@ -293,9 +310,6 @@ a{
 .form-update{
     text-indent: -0.5em;
     padding-left: 0.5em;
-}
-
-input[type="text"]{
 }
 
 .profile-container{
