@@ -55,10 +55,15 @@ input.form-control{
     float: right;
     background-color: #fff;
     margin-right:  25px;
+    margin-top: -40px;
 }
 
 .editBtn{
-    margin-right: 35px;
+    margin-right: 50px;
+}
+
+.trashBtn {
+    margin-right: 5px;
 }
 
 .followerCount{
@@ -89,6 +94,10 @@ input.form-control{
 
 .flex{
     display: flex;
+    border-top: 1px solid #bbb;
+    margin-bottom: 30px;
+
+
 }
 
 /* 区切りの線 */
@@ -99,7 +108,6 @@ hr{
     height: 1px;
     margin-top: 40px;
 }
-
 
 
 /* アコーディオンメニュー */
@@ -171,17 +179,17 @@ hr{
     transition: all 0.3s ease;
 }
 
-.accordion-content:hover{
-    background-color: #000080;
-}
-
 /* アコーディオンメニューの文字の色 */
 .accordion-menu{
     color: #999;
+    font-size: large;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .accordion-menu:hover{
     color: #fff;
+    background-color: #000080;
 }
 
 .accordion-container {
@@ -242,7 +250,6 @@ hr{
     padding: 0 16px;
     border-radius: 4px;
     border: none;
-    box-shadow: 0 0 0 1px #ccc inset;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -267,6 +274,23 @@ hr{
 
 
 /* ユーザー検索 */
+
+input[type="search"]{
+    margin-left: 20px;
+    margin-top: 30px;
+    height: 32px;
+    width: 230px;
+}
+
+.nameSearch{
+    padding: -20px;
+}
+
+.alert-primary{
+    float: right;
+    padding-right: 70px;
+}
+
 .unFollowBtn{
    background: #F00;
    border-radius: 4px;
@@ -282,16 +306,15 @@ hr{
 
 .userSearchBtn {
     background: #186AC9;
-    margin-top: 20px;
+    margin-top: 50px;
     margin-left: 50px;
-    border-top: 1px solid gray;
     border-radius: 4px;
     padding: 3px 3px;
 }
 
 .userSearchList{
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
     text-indent: -0.5em;
     padding-left: 0.5em;
 }
@@ -301,15 +324,16 @@ a{
 }
 /* プロフィール編集 */
 .profile-wrapper{
-    position: relative;
     margin-top: 20px;
-    text-indent: -0.5em;
     padding-left: 0.5em;
+    text-indent: -0.5em;
+    text-align: center;
 }
 
 .form-update{
     text-indent: -0.5em;
     padding-left: 0.5em;
+    text-align: center;
 }
 
 .profile-container{
@@ -333,4 +357,21 @@ a{
     flex-direction: column;
     border-radius: 4px;
     padding: 4px 35px;
+}
+
+/* 他ユーザーのプロフィール */
+.unFollowBtnOther {
+    background: #F00;
+    border-radius: 4px;
+    padding: 3px 3px;
+    float: right;
+    margin-right: 20px;
+}
+
+.followBtnOther {
+    background: #00bfff;
+    border-radius: 4px;
+    padding: 3px 3px;
+    float: right;
+    margin-right: 20px;
 }

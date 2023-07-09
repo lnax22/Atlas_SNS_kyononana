@@ -9,9 +9,9 @@
 <!-- フォローする、フォロー解除ボタン -->
 @if(Auth()->user()->isFollowing($user->id))
 
- <button><a class="btn btn-danger" href="/users/{{$user->id}}/unFollow">フォロー解除</a></button>
+ <button class="unFollowBtnOther"><a href="/users/{{$user->id}}/unFollow">フォロー解除</a></button>
  @else
- <button><a class="btn btn-primary" href="/users/{{$user->id}}/Follow">フォローする</a></button>
+ <button class="followBtnOther"><a href="/users/{{$user->id}}/Follow">フォローする</a></button>
  @endif
 
  <!-- 区切りの線 -->

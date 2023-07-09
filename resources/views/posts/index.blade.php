@@ -42,8 +42,8 @@ empty関数は変数が存在しない、または空であればtrueを返す�
     </div>
 
     @if(Auth::user()->id == $posts->user_id)
-     <button class="editBtn"><a class="js-modal-open" post="{{ $posts->post }}"  post_id="{{ $posts->id }}"><img src="{{ asset('images/edit.png')}}" width="25" height="25"></a></button>
 		 <button class="trashBtn"><a href="/posts/{{$posts->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><img src="{{ asset('images/trash.png')}}" onmouseover="this.src='{{ asset('images/trash-h.png')}}'" onmouseout="this.src='{{ asset('images/trash.png')}}'"width="25" height="25"></a></button>
+      <button class="editBtn"><a class="js-modal-open" post="{{ $posts->post }}"  post_id="{{ $posts->id }}"><img src="{{ asset('images/edit.png')}}" width="25" height="25"></a></button>
     @endif
 
   @endforeach
