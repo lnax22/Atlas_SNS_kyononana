@@ -58,26 +58,27 @@ class FollowsController extends Controller
         //  //whereInは値が複数取り得る場合に使用、自分がフォローしている人の投稿
 
         //画像アイコン
-        //$images = DB::table('users')->get();
-        $images = auth()->user()->follows()->get();
-        // フォローしているユーザーのidを取得
+        $images = Auth::User()->follows()->get();
+        $follows = Auth::User()->follows()->get();
+        //ログインユーザーがフォローしている人を表示する
         $following_id = Auth::user()->follows()->pluck('followed_id');
         // フォローしているユーザーのidを元に投稿内容を取得
         $posts = Post::with('user')->whereIn('user_id', $following_id)
         ->orderBy('created_at','desc')
         ->get();
-        return view('follows.followList',['posts'=>$posts,]);
+        return view('follows.followList',['follows'=>$follows,'posts'=>$posts,]);
     }
 
     // フォロワーリスト
     public function followerList()
     {
-        $images = auth()->user()->followed()->get();
+        $images = Auth::User()->followed()->get();
+        $followed = Auth::User()->followed()->get();
         $followed_id = Auth::user()->followed()->pluck('following_id');
         $posts = Post::with('user')->whereIn('user_id', $followed_id)
         ->orderBy('created_at','desc')
         ->get();
-        return view('follows.followerList',['posts'=>$posts,]);
+        return view('follows.followerList',['followed'=>$followed,'posts'=>$posts,]);
     }
 
 }

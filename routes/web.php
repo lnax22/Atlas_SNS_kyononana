@@ -13,16 +13,14 @@
 
 // Route::get('/', function () {
 //     return view('welcome');
-// });
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
-// $options変数としてauthメソッドに渡される引数を設定することでRegisterルートやPassword Resetルートをルーティングに登録させないことができます。
-//Auth::routes();
-
+// });;
 
 //Route::get or post('どのURLの時に','PostsController@何の記述の処理が行われるか');
 //aタグ->get,formタグ->postがわかりやすい
+
+//ミドルウェア
+// コントローラーが処理を実行する前に認証などの処理を行いたい場合はミドルウェアを使う→特定のユーザーのみがページを見れるようにする
+Route::get('/login', 'Auth\LoginController@login')-> name('login');
 
 //ログイン
 Route::get('/login', 'Auth\LoginController@login');
@@ -42,6 +40,7 @@ Route::post('/added', 'Auth\RegisterController@added');
 
 //トップページ
 Route::get('/top','PostsController@index');
+Route::post('/top','PostsController@index');
 
 // プロフィール編集
 Route::get('/profile','UsersController@profile');

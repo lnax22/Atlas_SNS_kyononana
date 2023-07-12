@@ -97,8 +97,8 @@ class UsersController extends Controller
             $users = User::where('username', 'LIKE' , "%".$keyword."%")->get();
         }
         else{
-            $users=User::all();
-            // ユーザー情報を全部持ってくる
+            $users= User::where("id" , "!=" , Auth::user()->id)->paginate(10);
+            // ログインユーザー以外のユーザーを全部持ってくる
         }
 
         return view('users.search',['users'=>$users,'keyword'=>$keyword]);

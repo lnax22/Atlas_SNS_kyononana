@@ -23,8 +23,8 @@ class PostsController extends Controller
     {
         $user=Auth::user(); //ログインしているユーザーの取得
         // $following_id=Auth::user()->pluck(); //フォローしているユーザーのIDを取得
-        $posts = Post::with('user')->get(); //編集された順
-        //    ->with('user')->whereIn('user_id',$user) //userテーブル、user_idカラムのログインユーザーのIDを取得
+        $posts = Post::with('user')->whereIn('user_id', Auth::user()->follows()->pluck('followed_id'))->orWhere('user_id', Auth::user()->id)->latest()->get();
+        //フォローしているユーザーと自分の投稿を取得
         //    ->orWhere('user_id',$following_id) //さらにフォローしているユーザー
           //PostテーブルとUserテーブルを取得している
           return view('posts.index',['posts'=>$posts]);

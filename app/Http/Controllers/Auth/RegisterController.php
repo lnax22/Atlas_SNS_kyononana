@@ -73,7 +73,7 @@ class RegisterController extends Controller
             $rules = [
                 'username' => 'required|string|min:2,max:12',
                 'mail' => 'required|string|email:rfc,dns|min:5|max:40|unique:users',
-                'password' => 'required|string|min:8|max:20|confirmed',
+                'password' => 'required|string|min:8|max:20|alpha_num|confirmed',
             ];
 
             $validator = Validator::make($data,$rules);
@@ -84,10 +84,12 @@ class RegisterController extends Controller
             }
 
             $this->create($data);
-            return redirect('added');
+
             // セッションの記述
-            $request->session()->put('name',$data['username']);
+            $request->get('username',$data);
+            return redirect('added')->with('username',$data);
         }
+
         return view('auth.register');
     }
 
