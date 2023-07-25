@@ -40,6 +40,10 @@ class PostsController extends Controller
         // （）の中はname属性を指定する
         $user_id = Auth::id();
         //Auth、requestは上に処理を書かないと適用されない
+        $data = $request->input();
+        $validator=$this->validate($request,[
+            'post' => 'required|string|min:1|max:150',
+        ]);
 
         \DB::table('posts')->insert([
             'post' => $posts,

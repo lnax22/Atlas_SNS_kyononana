@@ -20,23 +20,7 @@
 
 //ミドルウェア
 // コントローラーが処理を実行する前に認証などの処理を行いたい場合はミドルウェアを使う→特定のユーザーのみがページを見れるようにする
-Route::get('/login', 'Auth\LoginController@login')-> name('login');
-
-//ログイン
-Route::get('/login', 'Auth\LoginController@login');
-Route::post('/login', 'Auth\LoginController@login');
-
-//ログアウト
-Route::get('/logout','Auth\LoginController@logout');
-
-//新規登録
-Route::get('/register', 'Auth\RegisterController@register');
-Route::post('/register','Auth\RegisterController@register');
-
-//登録完了画面
-Route::get('/added', 'Auth\RegisterController@added');
-Route::post('/added', 'Auth\RegisterController@added');
-
+Route::group(['middleware' => ['loginUserCheck']], function() {
 
 //トップページ
 Route::get('/top','PostsController@index');
@@ -74,3 +58,19 @@ Route::post('/update', 'PostsController@update');
 Route::get('/users/{id}/Follow','FollowsController@Follow');
 // フォロー解除
 Route::get('/users/{id}/unFollow','FollowsController@unFollow');
+});
+
+//ログイン
+Route::get('/login', 'Auth\LoginController@login')->name('login');
+Route::post('/login', 'Auth\LoginController@login')->name('login');
+
+//ログアウト
+Route::get('/logout','Auth\LoginController@logout');
+
+//新規登録
+Route::get('/register', 'Auth\RegisterController@register');
+Route::post('/register','Auth\RegisterController@register');
+
+//登録完了画面
+Route::get('/added', 'Auth\RegisterController@added');
+Route::post('/added', 'Auth\RegisterController@added');

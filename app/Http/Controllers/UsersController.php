@@ -51,15 +51,6 @@ class UsersController extends Controller
             'images'=> 'file|mines:jpg,png,bmp,gif,svg',
         ]);
 
-        // if($image !=null){
-        //     if($validator->fails()){
-        //         return redirect('/profile/update')
-        //                    ->withErrors($validator)
-        //                    ->withInput();
-        //     }
-
-        // }
-
         // dd($image);
         if($image !=null){//画像データがあるとき
             $file_name = $image->getClientOriginalName();//画像のnameだけを保存
