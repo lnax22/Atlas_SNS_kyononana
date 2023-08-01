@@ -59,8 +59,6 @@ class UsersController extends Controller
         } else {
 
         }
-
-
         $this->edit($data);//更新する
 
         return redirect('/top');

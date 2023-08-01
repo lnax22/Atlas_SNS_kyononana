@@ -19,7 +19,7 @@ class PostsController extends Controller
 
     // 投稿の表示(top画面の表示)
     // ルーティングの第2引数から呼び出せるように
-    public function index()
+    public function index(Request $request)
     {
         $user=Auth::user(); //ログインしているユーザーの取得
         // $following_id=Auth::user()->pluck(); //フォローしているユーザーのIDを取得
@@ -27,7 +27,7 @@ class PostsController extends Controller
         //フォローしているユーザーと自分の投稿を取得
         //    ->orWhere('user_id',$following_id) //さらにフォローしているユーザー
           //PostテーブルとUserテーブルを取得している
-          return view('posts.index',['posts'=>$posts]);
+          return view('posts.index',['posts'=>$posts,]);
           // 「ビューファイルを引っ張ってくる」という処理内容です。
     }
 

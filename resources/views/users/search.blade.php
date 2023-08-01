@@ -13,14 +13,26 @@
 <div class="userSearchList">
 @foreach ($users as $user)
 <!-- （コントローラーから引っ張ってくる as ここで定義する） -->
- @if(Auth::user()->isFollowing($user->id))
-<!-- if文は一個 -->
-<a href="/profile/{{$user->id}}/other"><img src ="{{ asset('images/icon1.png')}}" class="icon" width="35" height="35"></a>
- {{$user->username}}<button class="unFollowBtn"><a href="/users/{{$user->id}}/unFollow">フォロー解除</a></button><br>
- @else
- <a href="/profile/{{$user->id}}/other"><img src ="{{ asset('images/icon1.png')}}" class="icon" width="35" height="35"></a>
- {{$user->username}}<button class="followBtn"><a href="/users/{{$user->id}}/Follow">フォローする</a></button><br>
+@if(Auth::user()->isFollowing($user->id))
+ <a href="/profile/{{$user->id}}/other">
+ @if(Auth::user()->images == null)
+  <img src ="{{ asset('images/icon1.png')}}" class="icon" width="35" height="35">
+  @else
+  <img src="{{asset('storage/' .$user->images)}}" class="icon" width="35" height="35"></a>
  @endif
+
+ {{$user->username}}<button class="unFollowBtn"><a href="/users/{{$user->id}}/unFollow">フォロー解除</a></button><br>
+@else
+ <!-- <a href="/profile/{{$user->id}}/other"><img src ="{{ asset('images/icon1.png')}}" class="icon" width="35" height="35"></a> -->
+ <a href="/profile/{{$user->id}}/other">
+ @if(Auth::user()->images == null)
+  <img src ="{{ asset('images/icon1.png')}}" class="icon" width="35" height="35">
+  @else
+  <img src="{{asset('storage/' .$user->images)}}" class="icon" width="35" height="35"></a>
+ @endif
+
+ {{$user->username}}<button class="followBtn"><a href="/users/{{$user->id}}/Follow">フォローする</a></button><br>
+@endif
 @endforeach
 </div>
 
