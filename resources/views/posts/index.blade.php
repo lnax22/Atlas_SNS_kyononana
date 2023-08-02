@@ -29,7 +29,17 @@ empty関数は変数が存在しない、または空であればtrueを返す�
    <img src="{{asset('storage/' .Auth::user()->images)}}" class="icon" width="35" height="35">
   @endif
    <input type="text" style="border:none" name="newPost" class="form-control" placeholder="投稿内容を入力してください">
-	 </div>
+    <!-- バリデーション エラーメッセージ-->
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach($errors->all() as $error)
+        <li>{{$error}}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+ </div>
 	 <button class="postBtn"><img src="{{ asset('images/post.png')}}" width="35" height="35"></button>
 </form>
 
