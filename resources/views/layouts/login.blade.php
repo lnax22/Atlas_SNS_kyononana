@@ -29,9 +29,9 @@
         <h4 class="accordion-title js-accordion-title">
          <p class="image_circle">{{ Auth::user()->username }}さん
             @if(Auth::user()->images == null)
-             <img src ="{{ asset('images/icon1.png')}}" class="icon" width="45" height="45">
+             <img src ="{{ asset('images/icon1.png')}}" class="accordion-menu-icon" width="40" height="40">
              @else
-             <img src="{{asset('storage/' .Auth::user()->images)}}" class="icon" width="45" height="45">
+             <img src="{{asset('storage/' .Auth::user()->images)}}" class="accordion-menu-icon" width="40" height="40">
             @endif
         </h4>
         <ul class="accordion-content">
