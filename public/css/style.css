@@ -316,9 +316,10 @@ input[type="search"]{
 .userSearchBtn {
     background: #186AC9;
     margin-top: 50px;
-    margin-left: 50px;
+    margin-left: 55px;
     border-radius: 4px;
-    padding: 3px 3px;
+    padding: 3px 18px 3px 18px;
+
 }
 
 .userSearchList{
@@ -336,7 +337,6 @@ a{
     margin-top: 20px;
     padding-left: 0.5em;
     text-indent: -0.5em;
-    text-align: center;
 }
 
 .form-update{
@@ -352,7 +352,9 @@ a{
 .profileIcon{
     border-radius: 50%;
     text-align: right;
-    margin-right: 400px;
+    margin-left: -320px;
+    margin-top: 70px;
+    margin-bottom: -40px;
 
 }
 
