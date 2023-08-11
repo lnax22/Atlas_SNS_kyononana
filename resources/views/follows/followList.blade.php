@@ -11,7 +11,8 @@
   <div class="flex">
    @foreach ($posts as $post)
     <a href="/profile/{{$post->user->id}}/other"><img src="{{asset('storage/' .$post->user->images)}}" class="icon" width="35" height="35"></a>
-    <p>{{ $post->user->username }} <br> {{ $post->post }}</p>
+    <p class="post">
+      {{ $post->user->username }} <br> {{ $post->post }}</p>
     <p class="post_date">{{$post->created_at}}</p>
    @endforeach
   </div>

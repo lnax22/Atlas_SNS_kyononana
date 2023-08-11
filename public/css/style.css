@@ -91,13 +91,10 @@ input.form-control{
     background: #fff
 }
 
-
 .flex{
     display: flex;
     border-top: 1px solid #bbb;
     margin-bottom: 30px;
-
-
 }
 
 /* 区切りの線 */
@@ -186,6 +183,7 @@ hr{
     text-align: center;
     margin: 0 auto;
     height: 50px;
+    line-height: 50px;
 }
 
 .accordion-menu a {
@@ -262,8 +260,6 @@ hr{
 /* 投稿フォーム */
 .form-control{
     height: 4.4em;
-    width: 70%;
-    padding: 0 16px;
     border-radius: 4px;
     border: none;
     appearance: none;
@@ -275,7 +271,6 @@ hr{
     outline: 0;
     box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
 }
-
 
 .br::before {
     content: "\A";
@@ -348,12 +343,25 @@ a{
     margin-top: 20px;
     text-indent: -0.5em;
     padding-left: 0.5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input{
+    display: block;
+}
+
+.custom-file-input{
+    display: block;
+    width: 44%;
 }
 
 .form-update{
     text-indent: -0.5em;
     padding-left: 0.5em;
     text-align: center;
+    margin: 0 auto;
+    width: 40%;
 }
 
 .profile-container{
@@ -363,15 +371,17 @@ a{
 .profileIcon{
     border-radius: 50%;
     text-align: right;
-    margin-left: -320px;
+    margin-left: -390px;
     margin-top: 70px;
     margin-bottom: -40px;
 }
 
-.label{
+.form-group{
     padding-left: 0.5em;
     text-indent: -0.5em;
     text-align: justify;
+    width: 100px;
+    white-space: nowrap
 }
 
 .update{
