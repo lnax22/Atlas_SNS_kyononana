@@ -171,7 +171,6 @@ hr{
 
 .accordion-content {
     display: none;
-    padding-left: 2.3125em;
     background-color: #fff;
     font-size: 20px;
     -webkit-transition: all 0.3s ease;
@@ -186,11 +185,22 @@ hr{
     font-size: large;
     text-align: center;
     margin: 0 auto;
+    height: 50px;
+}
+
+.accordion-menu a {
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .accordion-menu:hover{
     color: #fff;
     background-color: #000080;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
 }
 
 .accordion-container {
@@ -332,11 +342,12 @@ input[type="search"]{
 a{
     color: #fff;
 }
+
 /* プロフィール編集 */
 .profile-wrapper{
     margin-top: 20px;
-    padding-left: 0.5em;
     text-indent: -0.5em;
+    padding-left: 0.5em;
 }
 
 .form-update{
@@ -355,7 +366,12 @@ a{
     margin-left: -320px;
     margin-top: 70px;
     margin-bottom: -40px;
+}
 
+.label{
+    padding-left: 0.5em;
+    text-indent: -0.5em;
+    text-align: justify;
 }
 
 .update{

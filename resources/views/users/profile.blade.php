@@ -24,20 +24,20 @@
   @endif
     <div class="form-update">
       <div class="profile-wrapper">
-        user name<input type="text" value="{{ $user->username }}" class="input" name="username">
+        <label>user name<input type="text" value="{{ $user->username }}" class="input" name="username"></label>
       </div>
       <div class="profile-wrapper">
-        mail address<input type="text" value="{{ $user->mail }}" class="input" name="mail">
+        <label>mail address<input type="text" value="{{ $user->mail }}" class="input" name="mail"></label>
       </div>
       <div class="profile-wrapper">
-        password<input type="password" class="input" name="password">
+        <label>password<input type="password" class="input" name="password"></label>
       </div>
       <div class="profile-wrapper">
-        password confirm<input type="password" class="input" name="password_confirmation">
+        <label>password confirm<input type="password" class="input" name="password_confirmation"></label>
       </div>
       <!-- <span class="text-danger">{{ $errors->first('password_confirmation')}}</span> -->
       <div class="profile-wrapper">
-        bio<input type="bio" value="{{ $user->bio }}" name="bio">
+        <label>bio<input type="bio" value="{{ $user->bio }}" name="bio"></label>
       </div>
       <br>
       <label class="form-group">icon image</label>

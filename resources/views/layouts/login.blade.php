@@ -35,9 +35,9 @@
             @endif
         </h4>
         <ul class="accordion-content">
-          <li><a class=accordion-menu href="/top">HOME</a></li>
-          <li><a class=accordion-menu href="/profile">プロフィール編集</a></li>
-          <li><a class=accordion-menu href="/logout">ログアウト</a></li>
+          <li class=accordion-menu><a class=accordion-menu href="/top">HOME</a></li>
+          <li class=accordion-menu><a class=accordion-menu href="/profile">プロフィール編集</a></li>
+          <li class=accordion-menu><a class=accordion-menu href="/logout">ログアウト</a></li>
       <!-- aタグを使用することで、リンク先を指定することができます。liタグ内に記述したaタグの「href属性」に、それぞれのアンカーリンク同一ページ内のリンク先を設定します。なお、同一ページ内のリンクは、「id属性」で指定された場所まで「href=”#○○”」と記述することで移動ができます。 -->
         </ul>
       </div>
