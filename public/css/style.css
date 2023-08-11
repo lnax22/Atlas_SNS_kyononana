@@ -83,6 +83,10 @@ input.form-control{
     padding: 3px 3px;
 }
 
+.followListPost,.followerListPost{
+    flex-flow: column;
+}
+
 .followerListBtn{
     border-bottom: 1px solid #ccc;
 }
@@ -294,9 +298,7 @@ input[type="search"]{
 }
 
 .nameSearch{
-    padding: -20px;
     margin-left: 10px;
-    margin-bottom: -30px;
 
 }
 
@@ -309,12 +311,18 @@ input[type="search"]{
    background: #F00;
    border-radius: 4px;
    padding: 3px 3px;
+   display: block;
+   margin-left: auto;
+   margin-right: 250px;
 }
 
 .followBtn{
     background:#00bfff;
     border-radius: 4px;
     padding: 3px 3px;
+    display: block;
+    margin-left: auto;
+    margin-right: 250px;
 }
 
 
@@ -330,8 +338,7 @@ input[type="search"]{
 .userSearchList{
     text-align: center;
     margin-top: 30px;
-    text-indent: -0.5em;
-    padding-left: 0.5em;
+    margin: 0 auto;
 }
 
 a{

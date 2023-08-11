@@ -19,12 +19,12 @@
 
 <!-- 投稿内容 -->
 <div class="flex">
- @foreach ($posts as $post)
+@foreach ($posts as $post)
     <p class="icon"><img src="{{asset('storage/' .$post->user->images)}}" class="icon" width="35" height="35"></p>
-    <p>{{ $post->user->username }} <br> {{ $post->post }}</p>
+    <p class="post">{{ $post->user->username }} <br> {{ $post->post }}</p>
     <p class="post_date">{{$post->created_at}}</p>
-    @endforeach
 </div>
+@endforeach
 
 
 
