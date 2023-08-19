@@ -17,10 +17,10 @@
 <div class="register">
 <h2>新規ユーザー登録</h2>
 
-{{ Form::label('username') }}
+{{ Form::label('user name') }}
 {{ Form::text('username',null,['class' => 'input']) }}
 
-{{ Form::label('mailAddress') }}
+{{ Form::label('mail address') }}
 {{ Form::text('mail',null,['class' => 'input']) }}
 
 {{ Form::label('password') }}

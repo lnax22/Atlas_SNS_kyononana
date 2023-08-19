@@ -27,12 +27,14 @@
      <a href="/top"><img src ="{{ asset('images/atlas.png')}}" width="100" height="40"></a>
       <div id="accordion" class="accordion-container">
         <h4 class="accordion-title js-accordion-title">
-         <p class="image_circle">{{ Auth::user()->username }}さん
+        <div class="dropdown">
+         <p class="accordion-menu-name">{{ Auth::user()->username }}さん</p>
             @if(Auth::user()->images == null)
              <img src ="{{ asset('images/icon1.png')}}" class="accordion-menu-icon" width="40" height="40">
              @else
              <img src="{{asset('storage/' .Auth::user()->images)}}" class="accordion-menu-icon" width="40" height="40">
             @endif
+        </div>
         </h4>
         <ul class="accordion-content">
           <li class=accordion-menu><a class=accordion-menu href="/top">HOME</a></li>

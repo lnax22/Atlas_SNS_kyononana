@@ -16,7 +16,8 @@ header{
 
 h2{
     color: #fff;
-    margin-top: 35px;
+    font-size: 14px;
+
 }
 
 p,label,a{
@@ -28,11 +29,11 @@ p,label,a{
 
 .open{
     background: rgba(34,34,34,0.25);
-    width: 200px;
-    height: 220px;
-    background-size: 250px auto;
-    padding: 50px auto;
+    width: 190px;
+    background-size: 200px ;
+    padding: 5px 5px 25px 5px;
     margin: 0 auto;
+    margin-top: 40px;
     border-radius: 10px;
 }
 
@@ -41,8 +42,9 @@ p,label,a{
     width: 200px;
     height: 330px;
     background-size: 250px auto;
-    padding: 40px auto;
+    padding: 15px 0px;
     margin: 0 auto;
+    margin-top: 10px;
     border-radius: 10px;
 }
 
@@ -69,6 +71,17 @@ p,label,a{
     padding: 7px;
 }
 
+button {
+    /* 背景色を無色に */
+    background: transparent;
+    /* 枠線を消す */
+    border: none;
+    /* クリックした際に枠線をnone消す */
+    outline: none;
+    /* 影を消す */
+    box-shadow: none;
+}
+
 .added1{
     font-size: 15px;
 }
@@ -84,11 +97,13 @@ p,label,a{
 }
 
 .title{
-    margin-top: 60px;
-    font-size: 15px;
+    margin-top: 20px;
+    font-size: 14px;
 }
 
 label{
+    text-indent: -0.5em;
+    padding-left: 0.5em;
     margin-top: 20px;
     margin-left: 24px;
     font-size: 13px;
@@ -98,24 +113,27 @@ label{
 a{
     margin-top: 65px;
     margin-left: 87px;
-    font-size: 13px;
+    font-size: 14px;
     white-space: nowrap;
 }
 
 input [type="input"] {
+    box-shadow: none;
     text-align: center;
     border-radius: 10px;
     flex-direction: column;
+    text-indent: -0.5em;
+    padding-left: 0.5em;
 }
 
 input[type="submit"]{
+    box-shadow: none;
     background:#FF4F50;
     color: #fff;
     display: flex;
     margin: 0 auto;
     margin-top: 7px;
     margin-right: 25px;
-    flex-direction: column;
     float: right;
     border-radius: 4px;
     padding: 6px;
@@ -123,5 +141,5 @@ input[type="submit"]{
 
 body{
     height: 100%;
-    background: linear-gradient(-20deg, #ffcc33 15%, #0066ff 75%);
+    background: linear-gradient(to bottom, #0066ff, #ffcc00);
 }

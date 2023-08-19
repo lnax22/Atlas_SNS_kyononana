@@ -12,7 +12,8 @@ body{
 /* header */
 header{
     background:#186AC9;
-    height:65px
+    height: 40px;
+    padding: 15px;
 }
 
 /* main content */
@@ -124,11 +125,11 @@ hr{
 
 .accordion-container .accordion-title {
     position: relative;
-    margin: 0 0 0 auto;
     font-size: 1.25em;
     font-weight: normal;
     color: #fff;
     background: #186AC9;
+
 }
 
 .accordion-container .accordion-title:hover,
@@ -161,7 +162,7 @@ hr{
     border-right: solid 2px #fff;
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
-    margin-right: 105px;
+    margin-right: 35px;
 }
 
 .accordion-title.open:after {
@@ -202,21 +203,26 @@ hr{
     text-align: center;
     display: flex;
     justify-content: center;
-
 }
 
 .accordion-container {
     width: 250px;
-    height: 60px;
+    height: 50px;
     bottom: 38px;
     margin: 0 0 0 auto;
 }
 
-/* アイコン表示 */
-.image_circle {
+.dropdown{
     background-image: url("image.jpg");
-    background-position: 54% 36%;
+    height: 45px;
+    
     color: #fff;
+}
+
+.accordion-menu-name{
+    margin-left: 70px;
+    margin-bottom: -15px;
+
 }
 
 .icon {
@@ -225,8 +231,8 @@ hr{
 
 .accordion-menu-icon{
     border-radius: 50%;
-    margin-left: 95px;
-    margin-top: 10px;
+    margin-left: 205px;
+    margin-top: -5px;
 }
 
 /* 投稿編集のモーダルの中身 */
@@ -260,11 +266,9 @@ hr{
     width: 60%;
 }
 
-
 /* 投稿フォーム */
 .form-control{
     height: 4.4em;
-    border-radius: 4px;
     border: none;
     appearance: none;
     -webkit-appearance: none;
