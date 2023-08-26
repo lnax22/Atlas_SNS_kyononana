@@ -31,8 +31,9 @@ header{
     border-left: 1px solid #727272;
 }
 
-input.form-control{
-    border: none;
+#confirm{
+    padding-top: 15px;
+    padding-left: 10px;
 }
 
 .post{
@@ -41,30 +42,30 @@ input.form-control{
 
 .post_date{
     font-size: 11px;
-    float: right;
+    margin: 0 auto;
+    margin-right: 20px;
 }
 
 .postBtn{
     float: right;
     background-color: #186AC9;
     margin-right: 120px;
-    margin-top: -40px;
-
+    margin-top: -15px;
 }
 
 .editBtn,.trashBtn{
     float: right;
     background-color: #fff;
-    margin-right:  25px;
-    margin-top: -40px;
+    margin-right: 10px;
+    margin-top: -10px;
 }
 
 .editBtn{
-    margin-right: 50px;
+    margin-right: 10px;
 }
 
 .trashBtn {
-    margin-right: 5px;
+    margin-right: 20px;
 }
 
 .followerCount{
@@ -84,14 +85,6 @@ input.form-control{
     padding: 3px 3px;
 }
 
-.followListPost,.followerListPost{
-    flex-flow: column;
-}
-
-.followerListBtn{
-    border-bottom: 1px solid #ccc;
-}
-
 .edit{
     background: #fff
 }
@@ -99,7 +92,9 @@ input.form-control{
 .flex{
     display: flex;
     border-top: 1px solid #bbb;
-    margin-bottom: 30px;
+    padding-left: 55px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /* 区切りの線 */
@@ -117,10 +112,12 @@ hr{
     position: relative;
     margin: 0 0 0 auto;
     width: 100%;
-    border: 1px solid #0079c1;
-    border-top: none;
     outline: 0;
-    cursor: pointer
+    cursor: pointer;
+    width: 255px;
+    height: 60px;
+    margin-right: -15px;
+    margin-top: -33px;
 }
 
 .accordion-container .accordion-title {
@@ -153,7 +150,7 @@ hr{
     content: "";
     position: absolute;
     right: 25px;
-    top: 38%;
+    top: 45%;
     transition: all 0.2s ease-in-out;
     display: block;
     width: 8px;
@@ -162,7 +159,8 @@ hr{
     border-right: solid 2px #fff;
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
-    margin-right: 35px;
+    margin-right: 65px;
+    margin-top: -15px;
 }
 
 .accordion-title.open:after {
@@ -205,23 +203,16 @@ hr{
     justify-content: center;
 }
 
-.accordion-container {
-    width: 250px;
-    height: 50px;
-    bottom: 38px;
-    margin: 0 0 0 auto;
-}
-
 .dropdown{
     background-image: url("image.jpg");
     height: 45px;
-    
+    width: 65%;
     color: #fff;
+
 }
 
 .accordion-menu-name{
-    margin-left: 70px;
-    margin-bottom: -15px;
+    margin-left:40px;
 
 }
 
@@ -231,8 +222,9 @@ hr{
 
 .accordion-menu-icon{
     border-radius: 50%;
-    margin-left: 205px;
-    margin-top: -5px;
+    margin-left: 190px;
+    margin-top: -30px;
+    margin-bottom: 10px;
 }
 
 /* 投稿編集のモーダルの中身 */
@@ -267,22 +259,24 @@ hr{
 }
 
 /* 投稿フォーム */
+.form-group{
+    height: 60px;
+}
+.form{
+    padding-left: 55px;
+}
+
 .form-control{
-    height: 4.4em;
     border: none;
     appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width: 60%;
 }
 
-.form-control:focus{
+.form-control:focus {
     outline: 0;
-    box-shadow: 0 0 0 2px rgb(33, 150, 243) inset;
-}
-
-.br::before {
-    content: "\A";
-    white-space: pre;
 }
 
 .bottom_space {
@@ -303,7 +297,6 @@ input[type="search"]{
 
 .nameSearch{
     margin-left: 10px;
-
 }
 
 .alert-primary{
@@ -329,14 +322,12 @@ input[type="search"]{
     margin-right: 250px;
 }
 
-
 .userSearchBtn {
     background: #186AC9;
     margin-top: 50px;
     margin-left: 55px;
     border-radius: 4px;
     padding: 3px 18px 3px 18px;
-
 }
 
 .userSearchList{
@@ -360,11 +351,7 @@ a{
 
 .input{
     display: block;
-}
-
-.custom-file-input{
-    display: block;
-    width: 44%;
+    background-color: #EEE;
 }
 
 .form-update{
@@ -385,14 +372,6 @@ a{
     margin-left: -390px;
     margin-top: 70px;
     margin-bottom: -40px;
-}
-
-.form-group{
-    padding-left: 0.5em;
-    text-indent: -0.5em;
-    text-align: justify;
-    width: 100px;
-    white-space: nowrap
 }
 
 .update{

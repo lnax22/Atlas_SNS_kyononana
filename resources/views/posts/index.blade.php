@@ -75,10 +75,9 @@ empty関数は変数が存在しない、または空であればtrueを返す�
               <textarea name="upPost" class="modal_post"></textarea>
              <!-- 投稿のID（どこの投稿なのか） // 取得した投稿のidをモーダルの中身へ渡す-->
               <input type="hidden" name="id" class="modal_id" value="">
-              <input type="submit" value="更新">
+              <button class="editBtn"><a class="js-modal-close" ></a><img src="{{ asset('images/edit.png')}}" width="25" height="25"></a></button>
                 {{ csrf_field() }}
            </form>
-           <button><a class="js-modal-close" >閉じる</a></button>
         </div>
     </div>
  </table>

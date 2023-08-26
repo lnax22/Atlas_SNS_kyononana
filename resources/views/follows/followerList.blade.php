@@ -1,14 +1,16 @@
 @extends('layouts.login')
 @section('content')
-<h1>Follower List</h1>
+<div class="flex">
+ <h1>Follower List</h1>
 <!-- フォローされているユーザーのアイコン -->
-@foreach ($followed as $followed)
-<a href="/profile/{{$followed->id}}/other"><img src="{{asset('storage/' .$followed->images)}}" class="icon" width="35" height="35">
-@endforeach
+ @foreach ($followed as $followed)
+  <a href="/profile/{{$followed->id}}/other"><img src="{{asset('storage/' .$followed->images)}}" class="icon" width="35" height="35">
+ @endforeach
+</div>
 <!-- 区切りの線 -->
 <hr>
 
-  <div class="followerListPost">
+  <div class="flex">
     @foreach ($posts as $post)
     <a href="/profile/{{$post->user->id}}/other"><img src="{{asset('storage/' .$post->user->images)}}"class="icon" width="35" height="35"></a>
     <p class="post">{{$post->user->username}} <br> {{ $post->post }}</p>

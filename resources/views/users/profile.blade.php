@@ -36,10 +36,10 @@
         <label class="form-group">password confirm</label><input type="password" class="input" name="password_confirmation">
       </div>
       <div class="profile-wrapper">
-        <label class="form-group">bio</label><input type="bio" value="{{ $user->bio }}" name="bio">
+        <label class="form-group">bio</label><input type="bio" value="{{ $user->bio }}" class="input" name="bio">
       </div>
       <div class="profile-wrapper">
-        <label class="form-group">icon image</label><input type="file" name="image" class="custom-file-input" id="image">
+        <label class="form-group">icon image</label><input type="file" class="input" name="image">
       </div>
    </div>
    <br>
