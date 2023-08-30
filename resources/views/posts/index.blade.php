@@ -20,7 +20,7 @@ empty関数は変数が存在しない、または空であればtrueを返す�
   <!-- 投稿フォーム -->
   <form action="posts" method="POST"><!-- アクションでURLを指定 -->
   {{ csrf_field() }}
-	 <div class="form-group">
+	 <div class="indexForm-group">
 	 <!-- {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容を入力してください']) !!} -->
 	 <!-- Form::input('type属性','name属性','フォーム内に初めから入れる値の指定',[その他属性をまとめて指定]) -->
   @if(Auth::user()->images == null)

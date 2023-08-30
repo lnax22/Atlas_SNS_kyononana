@@ -31,7 +31,7 @@
 
 {{ Form::submit('REGISTER') }}
 
-<p><a href="/login">ログイン画面へ戻る</a></p>
+<p class="loginBack"><a href="/login">ログイン画面へ戻る</a></p>
 </div>
 
 {!! Form::close() !!}

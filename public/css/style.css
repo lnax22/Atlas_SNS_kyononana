@@ -31,9 +31,18 @@ header{
     border-left: 1px solid #727272;
 }
 
+button{
+    border-style: none;
+}
+
 #confirm{
     padding-top: 15px;
     padding-left: 10px;
+}
+
+.indexForm-group{
+    padding-left: 20px;
+    padding-top: 10px;
 }
 
 .post{
@@ -251,7 +260,7 @@ hr{
 .modal__content {
     background: #fff;
     left: 50%;
-    padding: 20px;
+    padding: 10px;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -260,19 +269,13 @@ hr{
 }
 
 .modal_post{
-    height: 100px;
-    width: 400px;
+    height: 200px;
+    width: 700px;
 }
 
 .modalEditBtn{
-    margin-top: 30px;
+    margin-top: 160px;
     float: right;
-}
-
-/* 投稿フォーム */
-.form-group{
-    height: 60px;
-    padding: 20px;
 }
 
 .form{
@@ -296,10 +299,36 @@ hr{
     margin-bottom: 2.5em;
 }
 
-/* 投稿送信ボタン */
-
 
 /* ユーザー検索 */
+.userSearchList {
+    text-indent: -0.5em;
+    padding-left: 0.5em;
+    text-align: center;
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 30px;
+
+}
+
+.search-wrapper{
+    text-align: center;
+    margin-top: 20px;
+    text-indent: -0.5em;
+    padding-left: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+}
+
+.userSearch{
+    margin-left: 15px;
+    padding: 9px;
+    margin-top: 5px;
+    padding-left: 0.5em;
+    text-indent: -0.5em;
+    white-space: nowrap;
+}
 
 input[type="search"]{
     margin-left: 20px;
@@ -310,6 +339,8 @@ input[type="search"]{
 
 .nameSearch{
     margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: -40px;
 }
 
 .alert-primary{
@@ -333,6 +364,7 @@ input[type="search"]{
     display: block;
     margin-left: auto;
     margin-right: 250px;
+    white-space: nowrap;
 }
 
 .userSearchBtn {
@@ -343,27 +375,41 @@ input[type="search"]{
     padding: 3px 18px 3px 18px;
 }
 
-.userSearchList{
-    text-align: center;
-    margin-top: 30px;
-    margin: 0 auto;
-}
-
 a{
     color: #fff;
 }
 
 /* プロフィール編集 */
+.form-group {
+    padding: 20px;
+    white-space: nowrap;
+    padding-left: 0.5em;
+    text-indent: -0.5em;
+}
+
 .profile-wrapper{
-    margin-top: 20px;
+    margin-top: 40px;
     text-indent: -0.5em;
     padding-left: 0.5em;
     display: flex;
     justify-content: space-between;
+    height: 30px;
+
 }
 
 .input{
     display: block;
+    background-color: #EEE;
+    border-style: none;
+}
+
+.input[type="file"]{
+    display: none;
+}
+
+.file{
+    padding: 10px 23px;
+    color: ;
     background-color: #EEE;
 }
 
@@ -372,7 +418,7 @@ a{
     padding-left: 0.5em;
     text-align: center;
     margin: 0 auto;
-    width: 40%;
+    width: 50%;
 }
 
 .profile-container{
@@ -382,9 +428,9 @@ a{
 .profileIcon{
     border-radius: 50%;
     text-align: right;
-    margin-left: -390px;
-    margin-top: 70px;
-    margin-bottom: -40px;
+    margin-left: -650px;
+    margin-top: 7%;
+    margin-bottom: -60px;
 }
 
 .update{

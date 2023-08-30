@@ -48,6 +48,10 @@ p,label,a{
     border-radius: 10px;
 }
 
+.loginBack{
+    margin-left: 20px;
+}
+
 .clear{
     background: rgba(34, 34, 34, 0.25);
     width: 230px;
@@ -112,8 +116,8 @@ label{
 
 a{
     margin-top: 65px;
-    margin-left: 87px;
-    font-size: 14px;
+    margin-left: 75px;
+    font-size: 11px;
     white-space: nowrap;
 }
 
@@ -133,10 +137,11 @@ input[type="submit"]{
     display: flex;
     margin: 0 auto;
     margin-top: 7px;
-    margin-right: 25px;
+    margin-right: 23px;
     float: right;
     border-radius: 4px;
     padding: 6px;
+    border-style: none;
 }
 
 body{

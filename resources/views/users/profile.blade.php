@@ -40,6 +40,7 @@
       </div>
       <div class="profile-wrapper">
         <label class="form-group">icon image</label><input type="file" class="input" name="image">
+        <label class="file">ファイルを選択</label>
       </div>
    </div>
    <br>
