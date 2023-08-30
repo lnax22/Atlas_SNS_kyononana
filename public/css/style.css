@@ -251,17 +251,30 @@ hr{
 .modal__content {
     background: #fff;
     left: 50%;
-    padding: 40px;
+    padding: 20px;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
     width: 60%;
+    height: 30%;
+}
+
+.modal_post{
+    height: 100px;
+    width: 400px;
+}
+
+.modalEditBtn{
+    margin-top: 30px;
+    float: right;
 }
 
 /* 投稿フォーム */
 .form-group{
     height: 60px;
+    padding: 20px;
 }
+
 .form{
     padding-left: 55px;
 }

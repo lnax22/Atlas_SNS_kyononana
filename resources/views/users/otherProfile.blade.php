@@ -1,9 +1,11 @@
 @extends('layouts.login')
 
 @section('content')
-<div class="flex">
-<p class="icon"><img src="{{asset('storage/' .$user->images)}}" class="icon" width="35" height="35"></p>
-<p>name {{ $user->username }} <br> bio {{ $user->bio }}</br>
+<div class="otherProfile">
+ <p class="icon"><img src="{{asset('storage/' .$user->images)}}" class="icon" width="35" height="35"></p>
+ <p class="otherProfileName">name {{ $user->username }} </p>
+ <br>
+ <p class="otherProfileBio">bio {{ $user->bio }}</p>
 </div>
 
 <!-- フォローする、フォロー解除ボタン -->
