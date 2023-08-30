@@ -394,23 +394,32 @@ a{
     display: flex;
     justify-content: space-between;
     height: 30px;
-
 }
 
 .input{
     display: block;
     background-color: #EEE;
     border-style: none;
+    width: 250px;
 }
 
-.input[type="file"]{
+.custom-file-input{
+    text-align: center;
+    margin-left: 50px;
     display: none;
+}
+
+.fileChoose{
+    background-color: #fff;
+    padding: 3px;
+    margin-top: 10px;
 }
 
 .file{
     padding: 10px 23px;
-    color: ;
     background-color: #EEE;
+    width: 210px;
+    height: 45px;
 }
 
 .form-update{
@@ -418,7 +427,7 @@ a{
     padding-left: 0.5em;
     text-align: center;
     margin: 0 auto;
-    width: 50%;
+    width: 55%;
 }
 
 .profile-container{
@@ -438,7 +447,7 @@ a{
     color: #fff;
     display: flex;
     margin: 0 auto;
-    margin-top: 7px;
+    margin-top: 45px;
     text-align: center;
     flex-direction: column;
     border-radius: 4px;

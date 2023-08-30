@@ -39,11 +39,12 @@
         <label class="form-group">bio</label><input type="bio" value="{{ $user->bio }}" class="input" name="bio">
       </div>
       <div class="profile-wrapper">
-        <label class="form-group">icon image</label><input type="file" class="input" name="image">
-        <label class="file">ファイルを選択</label>
+        <label class="form-group">icon image</label>
+        <label class="file">
+          <div class="fileChoose">ファイルを選択</div><input type="file" class="custom-file-input" name="image">
+        </label>
       </div>
    </div>
-   <br>
 
    <button type="submit" class="update">更新</button>
 
