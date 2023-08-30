@@ -33,6 +33,7 @@ header{
 
 button{
     border-style: none;
+    padding: unset;
 }
 
 #confirm{
@@ -45,9 +46,9 @@ button{
     padding-top: 10px;
 }
 
-.post{
+/* .post{
     border-bottom: 1px solid 40px #727272;
-}
+} */
 
 .post_date{
     font-size: 11px;
@@ -77,6 +78,19 @@ button{
     margin-right: 20px;
 }
 
+.edit {
+    background: #fff
+}
+
+.flex {
+    display: flex;
+    border-top: 1px solid #bbb;
+    padding-left: 55px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* サイドバー */
 .followerCount{
     white-space: nowrap;
     margin-top: 50px;
@@ -92,18 +106,6 @@ button{
     float: right;
     margin-top: 7px;
     padding: 3px 3px;
-}
-
-.edit{
-    background: #fff
-}
-
-.flex{
-    display: flex;
-    border-top: 1px solid #bbb;
-    padding-left: 55px;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 /* 区切りの線 */
@@ -222,11 +224,11 @@ hr{
 
 .accordion-menu-name{
     margin-left:40px;
-
 }
 
 .icon {
     border-radius: 50%;
+    margin-right: 5px;
 }
 
 .accordion-menu-icon{
@@ -339,8 +341,6 @@ input[type="search"]{
 
 .nameSearch{
     margin-left: 10px;
-    margin-top: 20px;
-    margin-bottom: -40px;
 }
 
 .alert-primary{
@@ -377,6 +377,10 @@ input[type="search"]{
 
 a{
     color: #fff;
+}
+
+h1{
+    margin-right: 40px;
 }
 
 /* プロフィール編集 */

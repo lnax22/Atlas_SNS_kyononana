@@ -9,12 +9,13 @@
 </div>
 <!-- 区切りの線 -->
 <hr>
-
-<div class="flex">
-   @foreach ($posts as $post)
-    <a href="/profile/{{$post->user->id}}/other"><img src="{{asset('storage/' .$post->user->images)}}" class="icon" width="35" height="35"></a>
-    <p class="post">{{ $post->user->username }} <br> {{ $post->post }}</p>
+ @foreach ($posts as $post)
+  <div class="flex">
+    <p><a href="/profile/{{$post->user->id}}/other"><img src="{{asset('storage/' .$post->user->images)}}" class="icon" width="35" height="35"></a></p>
+    <p class="post_username">{{ $post->user->username }}</p><br>
+    <p class="post">{{ $post->post }}</p>
     <p class="post_date">{{$post->created_at}}</p>
-   @endforeach
-</div>
+  </div>
+
+ @endforeach
 @endsection
