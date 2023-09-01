@@ -263,7 +263,7 @@ hr{
 .modal__content {
     background: #fff;
     left: 50%;
-    padding: 10px;
+    padding: 15px;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -273,11 +273,13 @@ hr{
 
 .modal_post{
     height: 200px;
-    width: 700px;
+    width:650px;
+    margin-left: 30px;
 }
 
 .modalEditBtn{
-    margin-top: 160px;
+    margin-top: 180px;
+    margin-right: 15px;
     float: right;
 }
 
@@ -304,6 +306,11 @@ hr{
 
 
 /* ユーザー検索 */
+.search{
+    display: flex;
+    margin-top: 30px;
+}
+
 .userSearchList {
     text-indent: -0.5em;
     padding-left: 0.5em;
@@ -311,6 +318,7 @@ hr{
     margin: 0 auto;
     width: 70%;
     margin-top: 30px;
+    margin-left: 260px;
 }
 
 .search-wrapper{
@@ -333,8 +341,7 @@ hr{
 }
 
 input[type="search"]{
-    margin-left: 20px;
-    margin-top: 30px;
+    margin-left: 40px;
     height: 32px;
     width: 230px;
 }
@@ -385,7 +392,6 @@ h1{
 
 /* プロフィール編集 */
 .form-group {
-    padding: 20px;
     white-space: nowrap;
     padding-left: 0.5em;
     text-indent: -0.5em;
@@ -403,6 +409,7 @@ h1{
 .input{
     display: block;
     background-color: #EEE;
+    color: #444;
     border-style: none;
     width: 250px;
 }
@@ -415,8 +422,12 @@ h1{
 
 .fileChoose{
     background-color: #fff;
-    padding: 3px;
+    color: #727272;
+    padding: 2px;
     margin-top: 10px;
+    width: 65%;
+    margin-left: 30px;
+    text-align: center;
 }
 
 .file{
@@ -427,11 +438,13 @@ h1{
 }
 
 .form-update{
+    align-items: stretch;
     text-indent: -0.5em;
     padding-left: 0.5em;
     text-align: center;
     margin: 0 auto;
     width: 55%;
+    margin-top: -10px;
 }
 
 .profile-container{
@@ -441,7 +454,7 @@ h1{
 .profileIcon{
     border-radius: 50%;
     text-align: right;
-    margin-left: -650px;
+    margin-left: -550px;
     margin-top: 7%;
     margin-bottom: -60px;
 }
@@ -451,7 +464,7 @@ h1{
     color: #fff;
     display: flex;
     margin: 0 auto;
-    margin-top: 45px;
+    margin-top: 70px;
     text-align: center;
     flex-direction: column;
     border-radius: 4px;
@@ -459,19 +472,43 @@ h1{
 }
 
 /* 他ユーザーのプロフィール */
-.otherProfile{
-    display: flex;
-    text-indent: -0.5em;
-    padding-left: 0.5em;
-    margin-top: 15px;
-    width: 40%;
-    justify-content: center;
+.otherProfileIcon{
+    border-radius: 50%;
+    margin-left: 30px;
+    margin-bottom: -6px;
 }
 
-.otherProfileName{
+.otherProfile{
+    padding-top: 30px;
     display: flex;
-    text-indent: -0.5em;
-    padding-left: 0.5em;
+    flex-flow: column;
+    height: 38px;
+}
+
+.profileContentName{
+    display: flex;
+    margin-right: 30px;
+}
+
+.wrap1,.wrap2{
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+    margin-left: 80px;
+    margin-bottom: 20px;
+}
+
+.wrap1{
+    margin-top: -30px;
+}
+
+.otherProfileBio{
+    margin-left: 50px;
+}
+
+.label,.profileContentName,.profileContentBio{
+    display: flex;
+    flex-flow: column;
 }
 
 .unFollowBtnOther {
@@ -480,7 +517,7 @@ h1{
     padding: 3px 3px;
     float: right;
     margin-right: 20px;
-    margin-top: -30px;
+    margin-top: -10px;
 }
 
 .followBtnOther {
