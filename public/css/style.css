@@ -503,7 +503,11 @@ h1{
 }
 
 .otherProfileBio{
-    margin-left: 50px;
+    justify-content: flex-start;
+}
+
+.otherProfileName {
+    justify-content: flex-start;
 }
 
 .label,.profileContentName,.profileContentBio{
