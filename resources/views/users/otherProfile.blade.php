@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="otherProfile">
- <p><img src="{{asset('storage/' .$user->images)}}" class="otherProfileIcon" width="35" height="35"></p>
+ <img src="{{asset('storage/' .$user->images)}}" class="otherProfileIcon" width="35" height="35">
  <div class="wrap1">
   <label >name</label>
   <p class="profileContentName">{{ $user->username }}</p>
