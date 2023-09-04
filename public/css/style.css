@@ -477,6 +477,7 @@ h1{
     margin-left: 30px;
     margin-bottom: -6px;
 }
+
 .otherProfile{
     padding-top: 30px;
     display: flex;
@@ -512,7 +513,11 @@ h1{
 .label,.profileContentName,.profileContentBio{
     display: flex;
     flex-flow: column;
+    width: 120px;
+    justify-content: flex-start;
 }
+
+
 
 .unFollowBtnOther {
     background: #F00;
