@@ -53,9 +53,10 @@ button{
 
 .post_date{
     font-size: 11px;
-    margin: 0 0 0 auto;
     margin-right: 20px;
-    height: 15px
+    height: 15px;
+    float: right;
+     margin-top: -48px;
 }
 
 .postBtn{
@@ -69,15 +70,15 @@ button{
     float: right;
     background-color: #fff;
     margin-right: 10px;
-
+    margin-top: -29px;
 }
 
 .editBtn{
-    margin-right: 10px;
+    margin-right: 60px;
 }
 
 .trashBtn {
-    margin-right: 20px;
+    margin-right: 25px;
 }
 
 .edit {
@@ -90,7 +91,6 @@ button{
     padding-left: 55px;
     padding-top: 10px;
     padding-bottom: 10px;
-    
 }
 
 /* サイドバー */

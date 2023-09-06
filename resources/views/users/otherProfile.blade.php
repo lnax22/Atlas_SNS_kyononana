@@ -40,8 +40,8 @@
  <div class="flex">
    <p class="icon"><img src="{{asset('storage/' .$post->user->images)}}" class="icon" width="35" height="35"></p>
    <p class="post">{{ $post->user->username }} <br> {{ $post->post }}</p>
-   <p class="post_date">{{$post->created_at}}</p>
  </div>
+   <p class="post_date">{{$post->created_at}}</p>
 @endforeach
 
 @endsection
